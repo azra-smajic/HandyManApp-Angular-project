@@ -1,0 +1,100 @@
+<div class="sve">
+  <div class="oglas">
+    <mat-card class="example-card" >
+      <mat-card-title-group>
+        <mat-card-title style="font-size: large;position: relative;left:100%;font-family: 'Mochiy Pop P One', sans-serif;" >{{oglas.Naziv}}</mat-card-title>
+        <mat-card-subtitle style=" color: rgba(134,25,25,0.73);position: relative;left:100%;font-family: 'Mochiy Pop P One', sans-serif"><mat-icon style="color: rgba(141,36,36,0.82)"> location_on</mat-icon>{{oglas.Grad}}</mat-card-subtitle>
+        <mat-card-subtitle style="color: rgba(29,50,155,0.73);position: relative;left:100%;font-family: 'Mochiy Pop P One', sans-serif"><mat-icon style="color: rgba(27,46,148,0.82); position: relative;top: 4px"> phone</mat-icon>{{oglas.BrojTelefona}}</mat-card-subtitle>
+        <mat-card-subtitle style="color: rgba(161,161,42,0.79);position: relative;left:100%;font-family: 'Mochiy Pop P One', sans-serif"><mat-icon style="color:  rgba(161,161,42,0.79)"> local_offer</mat-icon>{{oglas.Oblast}}</mat-card-subtitle>
+
+        <img mat-card-md-image src="clean.png" style="position: relative;top: 2%;margin-right: 15%; border: 2px solid deepskyblue; border-bottom-left-radius: 15px;-webkit-border-top-right-radius: 15px;  box-shadow: -2px 5px 5px 0px rgba(47, 44, 44, 0.75);
+  -webkit-box-shadow: -2px 5px 5px 0px rgba(61, 58, 58, 0.75);
+  -moz-box-shadow: -2px 5px 5px 0px rgba(51, 47, 47, 0.75);">
+
+      </mat-card-title-group>
+      <mat-card-content>
+        <form [formGroup]="form" style="position: relative;margin-right: 60%">
+          <ngx-star-rating formControlName="rating" [id]="'rating'" style="display: inline;"(change)="ChaneRating()" ></ngx-star-rating>
+          <div style="position: relative;top: 21.5px;left: 25%;color: #d39628;font-size:20px;font-weight: bold">{{oglas.Ocjena| number: '1.0-0'}} |</div>
+
+        </form>
+        <p (click)="OpenComment()" style=" position: relative;left: 40%;color: #8955f5;font-size:20px;font-weight: bold;bottom: 10px;width: 10%">| <mat-icon style="position: relative;top: 10px;cursor: pointer"> comment</mat-icon></p>
+        <button  type="button" class="btn btn-outline-success btn-lg" style="position: relative;left: 68%;bottom: 70px">Dogovori angažman</button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card"  style="position: relative;top: 20%;overflow-y: scroll">
+      <mat-card-title-group>
+        <mat-card-title style="font-size: large;position: relative;left:150%;font-family: 'Mochiy Pop P One', sans-serif;" >Opsirnije</mat-card-title>
+
+
+
+      </mat-card-title-group>
+      <mat-card-content>
+
+        <div class="btn-group" role="group" aria-label="Basic example"style="position: relative;left: 25%;bottom: 20px;top: 20px">
+          <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Pokriva područje:</button>
+          <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{oglas.Podrucje}}</button>
+        </div><br>
+        <div class="btn-group" role="group" aria-label="Basic example" style="position: relative;left: 25%;top: 40px">
+          <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Adresa:</button>
+          <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{oglas.Grad}}</button>
+        </div>
+        <p style="border-top: 1px solid #a29d9d; font-family: 'Luxurious Roman', cursive;position: relative; top: 70px; font-weight: bold;font-size: medium; color: rgba(101,95,95,0.72);width: 80%;left: 10%">{{oglas.Opis}}</p>
+
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card"  style="position: relative;top: 30%; height: 75%">
+      <mat-card-title-group>
+        <mat-card-title style="font-size: large;position: relative;left:150%;font-family: 'Mochiy Pop P One', sans-serif;" >Komentari</mat-card-title>
+      </mat-card-title-group>
+      <mat-card-content >
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8" *ngFor="let komentar of komentari|paginate: { itemsPerPage: 1, currentPage: p}">
+              <div class="media g-mb-30 media-comment">
+                <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
+                <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                  <div class="g-mb-15">
+                    <h5 class="h5 g-color-gray-dark-v1 mb-0">{{komentar.Ime}}</h5>
+                    <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
+                  </div>
+
+                  <p>{{komentar.Opis}}.</p>
+
+                  <ul class="list-inline d-sm-flex my-0">
+                    <li class="list-inline-item g-mr-20">
+                      <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                        <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                        178
+                      </a>
+                    </li>
+                    <li class="list-inline-item g-mr-20">
+                      <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                        <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                        34
+                      </a>
+                    </li>
+                    <li class="list-inline-item ml-auto">
+                      <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                        <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                        Reply
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <pagination-controls previousLabel="Prethodni"
+                             nextLabel="Sljedeći" (pageChange)="p = $event" class="paging" style="position: relative; left: 20%;top: 20px"></pagination-controls>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+</div>

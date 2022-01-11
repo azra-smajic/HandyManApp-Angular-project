@@ -1,0 +1,25 @@
+
+<mat-dialog-content class="mat-typography" style="background-color: white">
+  <div class="card">
+    <div class="row">
+      <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+      <div class="col-10">
+        <div class="comment-box ml-2">
+          <h2 style="color:black">Dodaj komentar</h2>
+          <div class="comment-area"> <textarea class="form-control" placeholder="Šta vam je na pameti?" rows="4" [(ngModel)]="opis"></textarea> </div>
+          <div class="comment-btns mt-2">
+            <div class="row">
+              <div class="col-6">
+                <div class="pull-left"> <button class="btn btn-success btn-sm" mat-dialog-close>Odustani</button> </div>
+              </div>
+              <div class="col-6">
+                <div class="pull-right"> <button class="btn btn-success send btn-sm" matDialogClose (click)="Komentiraj(opis)">Postavi <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+
