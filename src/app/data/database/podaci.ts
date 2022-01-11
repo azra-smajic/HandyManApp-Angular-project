@@ -9,7 +9,7 @@ export const Korisnici: Korisnik[] = [
         Username: "tajci",
         Password: "tajci",
         BrojTelefona: "+38761155681",
-        Uloga: "Potražitelj usluga",
+        Uloga: "Majstor",
         Kanton: "Tuzlanski",
         Grad: "Srebrenik"
     },
@@ -54,6 +54,59 @@ export const Kantoni = [
     },
     { id: "4", naziv: "Brčko Distrikt" },
   ];
+
+  export const Oglasi:any=[];
+
+  export const Komenari:any=[];
+
+  for(let i =0;i<6;i++){
+    Komenari.push({Ime:"Korisnik "+i,
+
+      Opis:"Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue\n" +
+        "felis"+i
+
+    })}
+
+  for(let i =0;i<6;i++){
+    Oglasi.push({Naziv:"Majstor E "+i,
+      Grad:"Grad "+i,
+      Podrucje:"Kanton "+i,
+      Slika:"Firma.jpg",
+      Oblast:"Elektrika",
+      BrojTelefona:"061/000-00"+i,
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
+      Ocjena:Math.random()})
+  }
+  for(let i =0;i<6;i++){
+    Oglasi.push({Naziv:"Majstor K "+i,
+      Podrucje:"Kanton "+i,
+      Grad:"Grad "+i,
+      Slika:"Firma.jpg",
+      Oblast:"Keramika",
+      BrojTelefona:"061/000-00"+i,
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
+      Ocjena:Math.random()})
+  }
+  for(let i =0;i<6;i++){
+    Oglasi.push({Naziv:"Majstor C "+i,
+      Podrucje:"Kanton "+i,
+      Grad:"Grad "+i,
+      Slika:"Firma.jpg",
+      Oblast:"Ciscenje",
+      BrojTelefona:"061/000-00"+i,
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
+      Ocjena:Math.random()})
+  }
+  for(let i =0;i<6;i++){
+    Oglasi.push({Naziv:"Majstor CI "+i,
+      Podrucje:"Kanton "+i,
+      Grad:"Grad "+i,
+      Slika:"Firma.jpg",
+      Oblast:"Cijevne instalacije",
+      BrojTelefona:"061/000-00"+i,
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
+      Ocjena:Math.random()})
+  }
 
   export const Uloge = ["Potražitelj usluga", "Majstor"];
 

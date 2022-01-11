@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Korisnik } from 'src/app/data/classes';
 import {Korisnici} from 'src/app/data/database/podaci';
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     Password: ['', [Validators.required]],
   })
 
-  constructor(private fb:FormBuilder, private toastr:ToastrService) { }
+  constructor(private fb:FormBuilder, private toastr:ToastrService, private router:Router) { }
 
   ngOnInit(): void {
     document.getElementById('username')?.focus();
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
     if(Exist!=null){
       this.toastr.success("Uspješno ste se prijavili.\nDobro došli "+Exist.Ime+".");
       InfoService.LogiraniKorisnik=Exist;
+      this.router.navigateByUrl("");
     }
     else{
       this.toastr.error("Vaši podaci nisu validni! Pokušajte ponovo.", "Greška");

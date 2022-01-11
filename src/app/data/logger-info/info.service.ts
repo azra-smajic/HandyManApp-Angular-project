@@ -6,7 +6,7 @@ import { Korisnik } from '../classes';
 })
 export class InfoService {
 
-  public static LogiraniKorisnik:Korisnik;
+  public static LogiraniKorisnik:any;
 
   constructor() { }
 }

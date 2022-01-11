@@ -1,37 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" *ngIf="GetUser()">
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-    <div class="navbar-collapse collapse show" id="navbarColor02" style="">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">home</mat-icon>
-            </li>
-            <li class="nav-item active">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">help</mat-icon>
-            </li>
-            <li class="nav-item active">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">home</mat-icon>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Unesite ime majstora">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pretraži</button>
-            </form>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="box-shadow: -2px 5px 5px 0px rgba(73,67,67,0.75);
+  -webkit-box-shadow: -2px 5px 5px 0px rgba(96,90,90,0.75);
+  -moz-box-shadow: -2px 5px 5px 0px rgba(72,69,69,0.75); width: 100%;">
 
 
+    <div class="navbar-collapse collapse show" id="navbarColor02" style="display: flex; justify-content: space-between;">
+
+        <div>
+
+            <ul class="navbar-nav mr-auto" style="margin: 0 !important;">
+                <li class="nav-item active">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%; left: 27%; cursor:pointer;" routerLink="">home</mat-icon><br>
+                    <a style="color: white;font-size: small;cursor: pointer;" routerLink="">Početna</a>
+                </li>
+                <li class="nav-item active" style="position: relative; left:15%">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%; left: 27%">help</mat-icon><br>
+                    <a style="color: white;font-size: small">Pomoć</a>
+
+                </li>
+                <li class="nav-item active" style="position: relative; left:32%">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%;left: 26%">info</mat-icon><br>
+                    <a style="color: white; font-size: small">O nama</a>
+                </li>
+            </ul>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            <div class="image" style="position: relative;left: 30%;"></div>
+            <p style="font-family: 'Mochiy Pop P One', sans-serif;font-size: larger; position: relative;left: 30%; color: #f5f5f8">HandyMan</p>
+        </div>
+
+        <div>
+            <ul class="navbar-nav mr-auto" style="margin: 0px 10px 0px 0px !important;">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="">Pretraga oglasa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="GetUloga()=='Majstor'">Dodaj oglas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="GetUloga()=='Potražitelj usluga'">Objavi kvar</a>
+                </li>
+                <li class="nav-item" *ngIf="GetUloga()=='Majstor'">
+                    <a class="nav-link" href="#">Evidencija angažmana</a>
+                </li>
+                <li class="nav-item" style="position: relative;" *ngIf="GetUser()==null">
+                    <button type="button" routerLink="/prijava" class="btn btn-outline-light" style="padding: 0% 10% 6% 6%">
+                  <mat-icon style="position: relative;top:6px">account_circle</mat-icon>Prijavi se</button>
+                </li>
+                <li class="nav-item" style="position: relative;" *ngIf="GetUser()">
+                    <button type="button" (click)="OdjaviSe()" class="btn btn-outline-danger" style="padding: 0% 10% 6% 6%">
+                <mat-icon style="position: relative;top:6px">account_circle</mat-icon>Odjavi se</button>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
-
 <router-outlet></router-outlet>

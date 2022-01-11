@@ -10,5 +10,8 @@ import { InfoService } from './data/logger-info/info.service';
 export class AppComponent {
   title = 'HandyManApp';
 
-  GetUser=()=> InfoService.LogiraniKorisnik;
+  GetUser=()=> InfoService?.LogiraniKorisnik;
+  GetUloga=()=>InfoService?.LogiraniKorisnik?.Uloga;
+
+  OdjaviSe=()=> InfoService.LogiraniKorisnik=null;
 }
