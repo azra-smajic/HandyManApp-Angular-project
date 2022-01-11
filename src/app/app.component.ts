@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Korisnik } from './data/classes';
+import { InfoService } from './data/logger-info/info.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HandyManApp';
+
+  GetUser=()=> InfoService.LogiraniKorisnik;
 }

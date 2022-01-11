@@ -1,35 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" *ngIf="GetUser()">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="navbar-collapse collapse show" id="navbarColor02" style="">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">home</mat-icon>
-      </li>
-      <li class="nav-item active">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">help</mat-icon>
-      </li>
-      <li class="nav-item active">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">home</mat-icon>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Unesite ime majstora">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pretraži</button>
-      </form>
-    </ul>
+    <div class="navbar-collapse collapse show" id="navbarColor02" style="">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">home</mat-icon>
+            </li>
+            <li class="nav-item active">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">help</mat-icon>
+            </li>
+            <li class="nav-item active">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%">home</mat-icon>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Unesite ime majstora">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pretraži</button>
+            </form>
+        </ul>
 
 
-  </div>
+    </div>
 </nav>
+
+<router-outlet></router-outlet>

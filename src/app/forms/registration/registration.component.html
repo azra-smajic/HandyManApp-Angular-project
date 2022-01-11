@@ -1,0 +1,88 @@
+<div class="half">
+    <!-- <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div> -->
+    <div id="pozicija" class="contents order-2 order-md-1">
+
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-block">
+                        <div class="text-center mb-5">
+                            <h3>Registracija na <strong>HandyManApp</strong></h3>
+                            <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
+                        </div>
+                        <form [formGroup]="formModel">
+
+                            <div class="form-group first">
+                                <label for="username">Unesite svoje ime:</label>
+                                <input type="text" class="form-control" formControlName="Ime" placeholder="Azra" id="ime">
+                                <label class="text-danger" *ngIf="formModel.get('Ime')?.touched && formModel.get('Ime')?.invalid">Ovo polje je obavezno!</label>
+                            </div>
+
+                            <div class="form-group first">
+                                <label for="username">Unesite svoje prezime:</label>
+                                <input type="text" class="form-control" formControlName="Prezime" placeholder="Smajić" id="prezime">
+                                <label class="text-danger" *ngIf="formModel.get('Prezime')?.touched && formModel.get('Prezime')?.invalid">Ovo polje je obavezno!</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Odaberite spol:</label>
+                                <select class="browser-default custom-select" formControlName="SpolID">
+                                    <option *ngFor="let spol of spolovi" [value]="spol">{{spol}}</option>
+                                  </select>
+                                <label class="text-danger" *ngIf="formModel.get('SpolID')?.touched && formModel.get('SpolID')?.invalid">Ovo polje je obavezno!</label>
+                            </div>
+
+
+                            <div class="form-group first">
+                                <label for="username">Unesite korisničko ime:</label>
+                                <input type="text" class="form-control" formControlName="Username" placeholder="azra.smajic" id="username">
+                                <label class="text-danger" *ngIf="formModel.get('Username')?.touched && formModel.get('Username')?.invalid">Ovo polje je obavezno!</label>
+                            </div>
+
+                            <div class="form-group last mb-3">
+                                <label for="password">Unesite lozinku:</label>
+                                <input type="password" class="form-control" formControlName="Password" placeholder="Vaša lozinka" id="password">
+                                <label class="text-danger" *ngIf="formModel.get('Password')?.touched && formModel.get('Password')?.invalid">Ovo polje mora sadržavati minimalno 8 karaktera!</label>
+                            </div>
+
+                            <div class="form-group first">
+                                <label for="username">Unesite broj telefona:</label>
+                                <input type="text " class="form-control" placeholder="+38761155681" id="phoneNumber ">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Odaberite svoj kanton/regiju:</label>
+                                <select class="browser-default custom-select" formControlName="KantonID" (change)="handleChange(true)">
+                                    <option *ngFor="let kanton of GetKantone()" [value]="kanton.id ">{{kanton.naziv}}</option>
+                                  </select>
+                                <label class="text-danger" *ngIf="formModel.get('KantonID')?.touched && formModel.get('KantonID')?.invalid">Ovo polje je obavezno!</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Odaberite svoj grad:</label>
+                                <select class="browser-default custom-select" formControlName="GradID">
+                                    <option *ngFor="let grad of GetGradove()" [value]="grad.id">{{grad.naziv}}</option>
+                                  </select>
+                                <label class="text-danger" *ngIf="formModel.get('GradID')?.touched && formModel.get('GradID')?.invalid">Ovo polje je obavezno!</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password ">Odaberite ulogu:</label>
+                                <select class="browser-default custom-select" formControlName="UlogaID">
+                                    <option *ngFor="let uloga of GetUloge()" [value]="uloga">{{uloga}}</option>
+                                  </select>
+                                <label class="text-danger" *ngIf="formModel.get('UlogaID')?.touched && formModel.get('UlogaID')?.invalid">Ovo polje je obavezno!</label>
+
+                            </div>
+
+
+                            <input type="submit" [disabled]="!formModel.valid" (click)="Registracija()" value="Registrujte se" class="btn btn-block btn-primary ">
+
+                            <br>
+                            <span class="ml-auto"><a routerLink="/prijava" class="forgot-pass">Već imate korisnički nalog? Prijavite se ovdje.</a></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
