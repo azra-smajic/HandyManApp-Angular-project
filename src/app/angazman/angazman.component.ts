@@ -11,7 +11,7 @@ import {Angazmani} from "../data/database/podaci";
   styleUrls: ['./angazman.component.css']
 })
 export class AngazmanComponent implements OnInit {
-
+  ID:number=100;
   firstFormGroup: any;
   secondFormGroup: any;
   isEditable = false;
@@ -70,15 +70,18 @@ export class AngazmanComponent implements OnInit {
   }
   Poruka1(){
     this.toastr.success("Uspješno ste dogovorili angažman","Čestitamo");
-    this.angazmani.push({
+      Angazmani.push({
+      ID:this.ID++,
+      Naziv:"Zahtjev za angažmanom",
       ImePotrazitelja:this.ime,
       KontaktTelefon:this.telefon,
       Adresa:this.adresa,
-      OpisProblema:this.opis,
-      datum:this.datum,
-      termin:this.termin,
-      slikaUrl:this.uploadedFiles
-
+      Opis:this.opis,
+      Datum:this.datum,
+      Vrijeme:this.termin,
+      SlikaURL:this.uploadedFiles,
+      Prihvacen:false,
+      Obrisan:false,
     })
   }
   Poruka(){

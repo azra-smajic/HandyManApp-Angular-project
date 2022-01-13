@@ -1,4 +1,4 @@
-import { Korisnik } from "../classes";
+import { Angazman, Korisnik } from "../classes";
 
 export const Korisnici: Korisnik[] = [
     {
@@ -57,7 +57,6 @@ export const Kantoni = [
 
   export const Oglasi:any=[];
   export const MojiOglasi:any=[];
-  export const Angazmani:any=[];
   export const Oblasti:any=[{
     Naziv:'Elektrika',},
     {Naziv: 'Ciscenje'},
@@ -126,4 +125,137 @@ MojiOglasi.push({Naziv:"PROBATEST ",
 
   export const Uloge = ["Potražitelj usluga", "Majstor"];
 
-  export const Spolovi = ["Muški", "Ženski", "Neodređeno"]
+  export const Spolovi = ["Muški", "Ženski", "Neodređeno"];
+
+  export var Angazmani:Angazman[]=[
+    {
+      ID:1,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu ašine ne radi centrifuguašine ne radi centrifuguašine ne radi centrifuguašine ne radi centrifuguašine ne radi centrifugu ašine ne radi centrifuguašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"../../Logo1.png",
+      ImePotrazitelja:"Mujo Hamzić",
+      KontaktTelefon:"062-159-193",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:2,
+      Naziv:"Izljevanje ploče",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Izljevanje ploče",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"../../../assets/Masina.png",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:3,
+      Naziv:"Popravka limarije",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:true,
+      Obrisan:false,
+      SlikaURL:"../../../assets/Masina.png",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:4,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"../../../assets/Masina.png",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:5,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:6,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"../../../assets/Masina.png",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:7,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"../../../assets/Masina.png",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:8,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"../../../assets/Masina.png",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:9,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+    {
+      ID:10,
+      Naziv:"Popravka veš mašine",
+      Datum:"27/07/2022",
+      Vrijeme:"13:00",
+      Opis:"Mašine ne radi centrifugu",
+      Prihvacen:false,
+      Obrisan:false,
+      SlikaURL:"",
+      ImePotrazitelja:"",
+      KontaktTelefon:"",
+      Adresa:"Pofalići Sarajevo"
+    },
+  ];

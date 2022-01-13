@@ -10,3 +10,24 @@ export class Korisnik{
     Grad!:string;
     Uloga!:string;
 };
+
+export class Angazman{
+    ID!:number;
+    Naziv!:string;
+    Datum!:string;
+    Vrijeme!:string;
+    Opis!:string;
+    Prihvacen!:boolean;
+    Obrisan!:boolean;
+    SlikaURL!:string;
+    ImePotrazitelja!:string;
+    KontaktTelefon!:string;
+    Adresa!:string;
+    
+}
+
+export class Poruka{
+    Header!:string;
+    Sadrzaj!:string;
+    OK:boolean=false;
+}

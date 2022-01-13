@@ -26,6 +26,13 @@ import { AngazmanComponent } from './angazman/angazman.component';
 import {MatButtonModule} from "@angular/material/button";
 import { FileUploadModule } from '@iplab/ngx-file-upload';
 import { MojioglasiComponent } from './mojioglasi/mojioglasi.component';
+import { OglasDetaljiComponent } from './forms/oglas-detalji/oglas-detalji.component';
+import { ConfirmationDialogComponent } from './forms/confirmation-dialog/confirmation-dialog.component';
+import { AngazmaniComponent } from './forms/angazmani/angazmani/angazmani.component';
+import { NoviangazmaniComponent } from './forms/angazmani/noviangazmani/noviangazmani.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 const routes:Routes=[
 
@@ -33,6 +40,8 @@ const routes:Routes=[
   { path:'detalji', component: DetaljiComponent},
   { path:'prijava', component: LoginComponent},
   { path:'registracija', component: RegistrationComponent},
+  { path:'noviangazmani', component: NoviangazmaniComponent},
+  { path:'prihvaceniangazmani', component: AngazmaniComponent},
   { path:'angazman', component: AngazmanComponent},
   { path:'dodajOglas', component: OglasComponent},
   { path:'mojiOglasi', component: MojioglasiComponent},
@@ -51,6 +60,10 @@ const routes:Routes=[
     OglasComponent,
     AngazmanComponent,
     MojioglasiComponent,
+    OglasDetaljiComponent,
+    ConfirmationDialogComponent,
+    AngazmaniComponent,
+    NoviangazmaniComponent,
 
 
 
@@ -75,6 +88,9 @@ const routes:Routes=[
     MatStepperModule,
     MatButtonModule,
     FileUploadModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatMenuModule
 
 
   ],

@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <div class="angazmani" style="padding-top: 2%;">
+        <h6>Prihvaćeni angažmani:</h6>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dsPrihvaceniANgazmani">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="Naziv">
+                    <th mat-header-cell *matHeaderCellDef> Opis </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Naziv}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Datum">
+                    <th mat-header-cell *matHeaderCellDef> Datum </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Datum}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Vrijeme">
+                    <th mat-header-cell *matHeaderCellDef> Vrijeme </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Vrijeme}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="KratakOpis">
+                    <th mat-header-cell *matHeaderCellDef> Adresa </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Adresa}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Akcije">
+                    <th mat-header-cell *matHeaderCellDef> Akcije </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button type="button" class="btn btn-outline-primary" (click)="Detalji(element.ID)">Detalji</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsPrihvaceni"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsPrihvaceni;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 15, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
+    </div>
+
+</div>

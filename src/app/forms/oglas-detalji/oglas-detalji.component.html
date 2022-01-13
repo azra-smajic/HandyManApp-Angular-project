@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{data.Naziv}}</mat-card-title>
+        <mat-card-subtitle>Zakazani datum: {{data.Datum}}</mat-card-subtitle>
+        <mat-card-subtitle>Zakazano vrijeme: {{data.Vrijeme}}</mat-card-subtitle>
+        <mat-card-subtitle>Ime potrazitelja: {{data.ImePotrazitelja}}</mat-card-subtitle>
+        <mat-card-subtitle>Adresa: {{data.Adresa}}</mat-card-subtitle>
+        <mat-card-subtitle>Kontakt telefon: {{data.KontaktTelefon}}</mat-card-subtitle>
+    </mat-card-header>
+    <div style="text-align: center; padding:4%;"><img mat-card-image src={{data.SlikaURL}} alt=""></div>
+    <mat-card-content>
+        <p>
+            Opis: {{data.Opis}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button class="btn btn-outline-secondary" (click)="onNoClick()">U redu</button>
+    </mat-card-actions>
+</mat-card>
