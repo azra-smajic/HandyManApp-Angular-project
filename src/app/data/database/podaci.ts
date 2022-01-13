@@ -56,8 +56,24 @@ export const Kantoni = [
   ];
 
   export const Oglasi:any=[];
+  export const MojiOglasi:any=[];
+  export const Angazmani:any=[];
+  export const Oblasti:any=[{
+    Naziv:'Elektrika',},
+    {Naziv: 'Ciscenje'},
+    {Naziv: 'Keramika'},
+    {Naziv: 'Cijevne instalacije'},
+  ];
 
   export const Komenari:any=[];
+MojiOglasi.push({Naziv:"PROBATEST ",
+  Grad:"Mostar",
+  Podrucje:"Hercegovačko neretvanski",
+  Slika:"Firma.jpg",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
 
   for(let i =0;i<6;i++){
     Komenari.push({Ime:"Korisnik "+i,

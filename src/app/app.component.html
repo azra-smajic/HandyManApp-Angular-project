@@ -8,9 +8,9 @@
         <div>
 
             <ul class="navbar-nav mr-auto" style="margin: 0 !important;">
-                <li class="nav-item active">
+                <li (click)="Pocetna()" class="nav-item active">
                     <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%; left: 27%; cursor:pointer;" routerLink="">home</mat-icon><br>
-                    <a style="color: white;font-size: small;cursor: pointer;" routerLink="">Početna</a>
+                    <a  style="color: white;font-size: small;cursor: pointer;" routerLink="">Početna</a>
                 </li>
                 <li class="nav-item active" style="position: relative; left:15%">
                     <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%; left: 27%">help</mat-icon><br>
@@ -31,17 +31,20 @@
 
         <div>
             <ul class="navbar-nav mr-auto" style="margin: 0px 10px 0px 0px !important;">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="">Pretraga oglasa</a>
+                <li  (click)="clickPretraga()"class="nav-item">
+                    <a #pretraga style="color: white"class="nav-link" routerLink="">Pretraga oglasa</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" *ngIf="GetUloga()=='Majstor'">Dodaj oglas</a>
+                <li (click)="clickOglas()" class="nav-item">
+                    <a #dodajOglas style="color: white" class="nav-link" routerLink="dodajOglas" *ngIf="GetUloga()=='Majstor'">Dodaj oglas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" *ngIf="GetUloga()=='Potražitelj usluga'">Objavi kvar</a>
+                <li  class="nav-item">
+                    <a class="nav-link" style="color: white"*ngIf="GetUloga()=='Potražitelj usluga'">Objavi kvar</a>
                 </li>
-                <li class="nav-item" *ngIf="GetUloga()=='Majstor'">
-                    <a class="nav-link" href="#">Evidencija angažmana</a>
+                <li (click)="clickEvidencija()" class="nav-item" *ngIf="GetUloga()=='Majstor'">
+                    <a #evidencija style="color: white"class="nav-link" href="#">Evidencija angažmana</a>
+                </li>
+              <li (click)="clickMojiOglasi()" class="nav-item" *ngIf="GetUloga()=='Majstor'">
+                    <a #mojiOglasi style="color: white"class="nav-link" href="#"routerLink="mojiOglasi">Moji oglasi</a>
                 </li>
                 <li class="nav-item" style="position: relative;" *ngIf="GetUser()==null">
                     <button type="button" routerLink="/prijava" class="btn btn-outline-light" style="padding: 0% 10% 6% 6%">

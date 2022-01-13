@@ -20,6 +20,12 @@ import {ToastrModule} from "ngx-toastr";
 import { KomentarComponent } from './komentar/komentar.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from '@angular/material/input';
+import { OglasComponent } from './oglas/oglas.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import { AngazmanComponent } from './angazman/angazman.component';
+import {MatButtonModule} from "@angular/material/button";
+import { FileUploadModule } from '@iplab/ngx-file-upload';
+import { MojioglasiComponent } from './mojioglasi/mojioglasi.component';
 
 const routes:Routes=[
 
@@ -27,6 +33,9 @@ const routes:Routes=[
   { path:'detalji', component: DetaljiComponent},
   { path:'prijava', component: LoginComponent},
   { path:'registracija', component: RegistrationComponent},
+  { path:'angazman', component: AngazmanComponent},
+  { path:'dodajOglas', component: OglasComponent},
+  { path:'mojiOglasi', component: MojioglasiComponent},
 
 
 
@@ -39,6 +48,9 @@ const routes:Routes=[
     HomeComponent,
     DetaljiComponent,
     KomentarComponent,
+    OglasComponent,
+    AngazmanComponent,
+    MojioglasiComponent,
 
 
 
@@ -59,7 +71,12 @@ const routes:Routes=[
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule,
+    MatButtonModule,
+    FileUploadModule,
+
+
   ],
 
   providers: [],

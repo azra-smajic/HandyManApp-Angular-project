@@ -1,0 +1,21 @@
+<div class="oglasi">
+  <mat-card class="example-card" *ngFor="let oglas of oglasi | paginate: { itemsPerPage: 6, currentPage: p};let i=index">
+    <mat-card-title-group>
+      <mat-card-title style="font-size: medium">{{oglas.Naziv}}</mat-card-title>
+      <mat-card-subtitle style="color: rgba(161,161,42,0.79)">
+        <mat-icon style="color:  rgba(161,161,42,0.79)"> local_offer</mat-icon>{{oglas.Oblast}}</mat-card-subtitle>
+      <mat-card-subtitle style="color: rgba(134,25,25,0.73)">
+        <mat-icon style="color: rgba(141,36,36,0.82)"> location_on</mat-icon>{{oglas.Grad}}</mat-card-subtitle>
+      <img mat-card-md-image src="clean.png">
+    </mat-card-title-group>
+    <mat-card-content>
+      <mat-card-subtitle style="color: rgba(178,119,12,0.8)">
+        <mat-icon style="color: rgba(178,119,12,0.8);position: relative;top: 6px">star</mat-icon> {{oglas.Ocjena| number: '1.0-0'}}</mat-card-subtitle>
+      <button (click)="UrediOglas(i,oglas)" type="button" class="btn btn-outline-dark" style="width: 70%;position: relative;left: 15%; top:30px" >Uredi</button>
+      <button (click)="Obrisi(i)" type="button" class="btn btn-outline-danger" style="width: 70%;position: relative;left: 15%; top:40px" >Obriši</button>
+
+    </mat-card-content>
+  </mat-card>
+ </div>
+<pagination-controls style="position:relative;left:40%;" previousLabel="Prethodni" nextLabel="Sljedeći" (pageChange)="p = $event" class="paging"></pagination-controls>
+

@@ -1,0 +1,48 @@
+
+
+.sve{
+  position: relative;
+  top:5%;
+  width: 70%;
+  height: auto;
+  left: 15%;
+}
+.justify{
+  display: flex;
+  justify-content: space-evenly;
+}
+.datum{
+  width: 500px;
+  height: 350px;
+  display: inline-block;
+  background-image: url("1-2022-a4-l-0-24-ba.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.vrijeme{
+  width: 500px;
+  position: relative;
+  left: 10%;
+  height: 350px;
+  display: inline-block;
+  background-image: url("nova.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+  z-index: 1;
+}
+.justifyZadnji{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.gornji{
+  display: flex;
+  flex-direction:row;
+  height: 40%;
+}
+.donji{
+  display: flex;
+  flex-direction: row;
+}
