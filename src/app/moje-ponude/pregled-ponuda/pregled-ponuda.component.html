@@ -1,0 +1,55 @@
+<div class="wrapper">
+    <div class="angazmani" style="padding-top: 2%;">
+        <h6>Pregled ponuda za oglas</h6>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dsPonude" class="table-striped">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="Majstor">
+                    <th mat-header-cell *matHeaderCellDef> Majstor </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Majstor}} </td>
+                </ng-container>
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="Grad">
+                    <th mat-header-cell *matHeaderCellDef> Grad </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Grad}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Datum">
+                    <th mat-header-cell *matHeaderCellDef> Datum slanja ponude </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Datum}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Opis">
+                    <th mat-header-cell *matHeaderCellDef> Opis ponude </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Opis}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="BrojTelefona">
+                    <th mat-header-cell *matHeaderCellDef> Broj telefona majstora </th>
+                    <td mat-cell *matCellDef="let element"> {{element.BrojTelefona}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="Akcije">
+                    <th mat-header-cell *matHeaderCellDef> Akcije </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button type="button" class="btn btn-outline-danger" (click)="OdbijAngazman(1)">Odbij ponudu</button>
+                        <button type="button" class="btn btn-outline-success" (click)="RouteDetalji()">Dogovori angažman</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsPrihvaceni"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsPrihvaceni;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 15, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
-import { Angazman, Korisnik } from "../classes";
+import { Angazman, Korisnik, Ponuda, PotraziteljOglas } from "../classes";
 
 export const Korisnici: Korisnik[] = [
     {
@@ -14,7 +14,7 @@ export const Korisnici: Korisnik[] = [
         Grad: "Srebrenik"
     },
     {
-        ID: 1,
+        ID: 2,
         Ime: "Azra",
         Prezime: "Smajic",
         Spol: "Ženski",
@@ -57,14 +57,72 @@ export const Kantoni = [
 
   export const Oglasi:any=[];
   export const MojiOglasi:any=[];
-export const Ponude:any=[];
-export const MojePonude:any=[];
+  export const Ponude:any=[];
+  export const MojePonude:any=[];
   export const Oblasti:any=[{
     Naziv:'Elektrika',},
     {Naziv: 'Ciscenje'},
     {Naziv: 'Keramika'},
     {Naziv: 'Cijevne instalacije'},
   ];
+
+  export const MajstorPonude:Ponuda[]=[];
+
+  MajstorPonude.push(
+    {
+    ID:1,
+    OglasID:1,
+    PotraziteljID:2,
+    MajstorID:1,
+    Opis:"Ovo Vam mogu riješiti za 50 KM. Kontaktirajte me ili zakažite termin",
+    Datum:"22.01.2022."
+  }
+  )
+
+  export var PotraziteljOglasi:PotraziteljOglas[]=[
+    {
+      ID:1,
+      Naziv:"Popravka mašine za veš",
+      Grad:"Mostar",
+      Adresa:"Zalik",
+      Podrucje:"Hercegovačko-neretvanski kanton",
+      Slika:"http://localhost:4200/assets/masina.jpg",
+      Oblast:"Elektrika",
+      BrojTelefona:"061/000-000",
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+      PotraziteljID:3,
+      Potrazitelj:"Azra Smajić",
+      Notification:false
+    },
+    {
+      ID:2,
+      Naziv:"Popravka mašine za suđe",
+      Grad:"Mostar",
+      Adresa:"Zalik",
+      Podrucje:"Hercegovačko-neretvanski kanton",
+      Slika:"http://localhost:4200/assets/Sudje.jpg",
+      Oblast:"Elektrika",
+      BrojTelefona:"061/000-000",
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+      PotraziteljID:3,
+      Potrazitelj:"Azra Smajić",
+      Notification:false
+    },
+    {
+      ID:3,
+      Naziv:"Popravka mašine za veš",
+      Grad:"Mostar",
+      Adresa:"Zalik",
+      Podrucje:"Hercegovačko-neretvanski kanton",
+      Slika:"http://localhost:4200/assets/Elgrijalica.jpg",
+      Oblast:"Elektrika",
+      BrojTelefona:"061/000-000",
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+      PotraziteljID:2,
+      Potrazitelj:"Azra Smajić",
+      Notification:false
+    }
+];
 
   export const Komenari:any=[];
 MojiOglasi.push({Naziv:"PROBATEST ",
@@ -76,7 +134,8 @@ MojiOglasi.push({Naziv:"PROBATEST ",
   Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
   Ocjena:Math.random()})
 
-MojePonude.push({Naziv:"PonudaTest",
+
+MojePonude.push({Naziv:"Popravka mašine za veš",
   Grad:"Mostar",
   Podrucje:"Hercegovačko neretvanski",
   Slika:"http://localhost:4200/assets/masina.jpg",
@@ -84,6 +143,27 @@ MojePonude.push({Naziv:"PonudaTest",
   BrojTelefona:"061/000-00",
   Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
   Ocjena:Math.random()})
+
+  MojePonude.push({Naziv:"Popravka mašine za suđe",
+  Grad:"Mostar",
+  Podrucje:"Hercegovačko neretvanski",
+  Slika:"http://localhost:4200/assets/Sudje.jpg",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
+  MojePonude.push({Naziv:"Popravka el. grijalice",
+  Grad:"Mostar",
+  Podrucje:"Hercegovačko neretvanski",
+  Slika:"http://localhost:4200/assets/Elgrijalica.jpg",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+  
+
+
 
 
   for(let i =0;i<6;i++){
@@ -425,3 +505,6 @@ Oglasi.push({Naziv:"Tarik Bojkić",
       Adresa:"Pofalići Sarajevo"
     },
   ];
+
+
+

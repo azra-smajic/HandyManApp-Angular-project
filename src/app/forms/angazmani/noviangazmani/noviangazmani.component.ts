@@ -49,7 +49,7 @@ export class NoviangazmaniComponent implements AfterViewInit {
     if (await this.openDialog('Pitanje','Jeste li sigurni da želite odbiti ovaj angažman?')) {
         Angazmani.find(x => x.ID == id)!.Obrisan = true;
         this.UcitajAngazmane();
-        this.toastr.warning("Odbili ste novi angažman.");
+        this.toastr.success("Uspješno ste odbili novi angažman.");
     }
   }
 

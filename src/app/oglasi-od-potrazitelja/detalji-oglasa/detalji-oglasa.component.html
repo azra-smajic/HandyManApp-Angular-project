@@ -1,0 +1,19 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{data.Naziv}}</mat-card-title>
+        <mat-card-subtitle>Ime potražitelja: {{data.Potrazitelj}}</mat-card-subtitle>
+        <mat-card-subtitle>Grad: {{data.Grad}}</mat-card-subtitle>
+        <mat-card-subtitle>Adresa: {{data.Adresa}}</mat-card-subtitle>
+        <mat-card-subtitle>Kontakt telefon: {{data.BrojTelefona}}</mat-card-subtitle>
+    </mat-card-header>
+    <div style="text-align: center; padding:4%;"><img mat-card-image src={{data.Slika}} alt=""></div>
+    <mat-card-content>
+        <p>
+            {{data.Opis}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button style="margin-right: 5px;" class="btn btn-outline-danger" (click)="onNoClick()">Zatvori</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {MojePonude, MojiOglasi} from "../data/database/podaci";
+import { ToastrService } from 'ngx-toastr';
+import {  MajstorPonude, PotraziteljOglasi} from "../data/database/podaci";
 
 @Component({
   selector: 'app-moje-ponude',
@@ -12,22 +13,33 @@ export class MojePonudeComponent implements OnInit {
   pageOfItems: any;
   p:number=1;
   oglasi:any;
-  constructor(private router:Router) {
-    this.oglasi=MojePonude;
+  ogl:any;
+  constructor(private router:Router, private toastr:ToastrService) {
+    this.oglasi=PotraziteljOglasi;
+    console.log(this.oglasi)
   }
 
   ngOnInit(): void {
   }
   onChangePage(pageOfItems: any) {
-    // update current page of items
     this.pageOfItems = pageOfItems;
   }
   Obrisi(indeks:any) {
-    MojePonude.splice(indeks,1)
-
+    PotraziteljOglasi.splice(indeks,1)
   }
   UrediOglas(indeks:any,oglas:any){
     this.router.navigateByUrl("/addPonuda",{state:{oglas:oglas, indeks:indeks}})
   }
 
+  PregledPonuda(id:number){
+    this.ogl =PotraziteljOglasi.find(x=>x.ID==id);
+    this.ogl.Notification=false;
+    console.log(PotraziteljOglasi.find(x=>x.ID==id))
+    var ponude=MajstorPonude.filter(x=>x.OglasID==id);
+    if(ponude.length==0){
+      this.toastr.error("Nemate ponuda za ovaj oglas.","Greška")
+      return;
+    }
+    this.router.navigateByUrl("/pregled-ponuda", {state: {OglasID:id}});
+  }
 }

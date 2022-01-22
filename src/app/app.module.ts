@@ -34,6 +34,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { AddPonudaComponent } from './add-ponuda/add-ponuda.component';
 import { MojePonudeComponent } from './moje-ponude/moje-ponude.component';
+import { OglasiOdPotraziteljaComponent } from './oglasi-od-potrazitelja/oglasi-od-potrazitelja.component';
+import { DetaljiOglasaComponent } from './oglasi-od-potrazitelja/detalji-oglasa/detalji-oglasa.component';
+import { SlanjePonudeComponent } from './oglasi-od-potrazitelja/slanje-ponude/slanje-ponude.component';
+import { PregledPonudaComponent } from './moje-ponude/pregled-ponuda/pregled-ponuda.component';
 
 
 const routes:Routes=[
@@ -49,9 +53,8 @@ const routes:Routes=[
   { path:'mojiOglasi', component: MojioglasiComponent},
   { path:'addPonuda', component: AddPonudaComponent},
   { path:'mojePonude', component: MojePonudeComponent},
-
-
-
+  { path:'majstor-oglasi', component: OglasiOdPotraziteljaComponent},
+  { path:'pregled-ponuda', component: PregledPonudaComponent},
 ];
 @NgModule({
   declarations: [
@@ -70,6 +73,10 @@ const routes:Routes=[
     NoviangazmaniComponent,
     AddPonudaComponent,
     MojePonudeComponent,
+    OglasiOdPotraziteljaComponent,
+    DetaljiOglasaComponent,
+    SlanjePonudeComponent,
+    PregledPonudaComponent,
 
 
 

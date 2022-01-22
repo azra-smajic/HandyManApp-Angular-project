@@ -1,20 +1,20 @@
 <div class="oglasi">
-  <mat-card class="example-card" *ngFor="let oglas of oglasi | paginate: { itemsPerPage: 6, currentPage: p};let i=index">
-    <mat-card-title-group>
-      <mat-card-title style="font-size: medium">{{oglas.Naziv}}</mat-card-title>
-      <mat-card-subtitle style="color: rgba(161,161,42,0.79)">
-        <mat-icon style="color:  rgba(161,161,42,0.79)"> local_offer</mat-icon>{{oglas.Oblast}}</mat-card-subtitle>
-      <mat-card-subtitle style="color: rgba(134,25,25,0.73)">
-        <mat-icon style="color: rgba(141,36,36,0.82)"> location_on</mat-icon>{{oglas.Grad}}</mat-card-subtitle>
-      <img mat-card-md-image src="{{oglas.Slika}}">
-    </mat-card-title-group>
-    <mat-card-content>
+    <mat-card class="example-card" *ngFor="let oglas of oglasi | paginate: { itemsPerPage: 6, currentPage: p};let i=index">
+        <mat-card-title-group>
+            <mat-card-title style="font-size: medium">{{oglas.Naziv}}</mat-card-title>
+            <mat-card-subtitle style="color: rgba(161,161,42,0.79)">
+                <mat-icon style="color:  rgba(161,161,42,0.79)"> local_offer</mat-icon>{{oglas.Oblast}}</mat-card-subtitle>
+            <mat-card-subtitle style="color: rgba(134,25,25,0.73)">
+                <mat-icon style="color: rgba(141,36,36,0.82)"> location_on</mat-icon>{{oglas.Grad}}</mat-card-subtitle>
+            <img mat-card-md-image src="{{oglas.Slika}}">
+        </mat-card-title-group>
+        <mat-card-content>
+            <mat-icon *ngIf="oglas.Notification" class="notification" color="warn">notifications</mat-icon>
+            <button type="button" class="btn btn-outline-info" (click)="PregledPonuda(oglas.ID)" style="width: 70%;position: relative;left: 15%; top:90px">Ponude</button>
+            <button (click)="UrediOglas(i,oglas)" type="button" class="btn btn-outline-success" style="width: 70%;position: relative;left: 15%; top:95px">Uredi</button>
+            <button (click)="Obrisi(i)" type="button" class="btn btn-outline-danger" style="width: 70%;position: relative;left: 15%; top:100px">Obriši</button>
 
-      <button (click)="UrediOglas(i,oglas)" type="button" class="btn btn-outline-dark" style="width: 70%;position: relative;left: 15%; top:90px" >Uredi</button>
-      <button (click)="Obrisi(i)" type="button" class="btn btn-outline-danger" style="width: 70%;position: relative;left: 15%; top:100px" >Obriši</button>
-
-    </mat-card-content>
-  </mat-card>
+        </mat-card-content>
+    </mat-card>
 </div>
 <pagination-controls style="position:relative;left:40%;" previousLabel="Prethodni" nextLabel="Sljedeći" (pageChange)="p = $event" class="paging"></pagination-controls>
-
