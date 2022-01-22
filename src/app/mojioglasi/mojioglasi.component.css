@@ -1,6 +1,6 @@
 .oglasi{
   width: 100%;
-  height: 85%;
+  height: 80%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -10,7 +10,7 @@
   height: 50%;
   position: relative;
   left: 5%;
-  top: 5%;
+
   margin-right: 5%;
   margin-bottom: 5%;
   border: 10px solid transparent;

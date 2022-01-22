@@ -4,6 +4,7 @@ import {ToastrService} from "ngx-toastr";
 import {FileUploadControl, FileUploadValidators} from "@iplab/ngx-file-upload";
 import {BehaviorSubject} from "rxjs";
 import {Angazmani} from "../data/database/podaci";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-angazman',
@@ -28,6 +29,7 @@ export class AngazmanComponent implements OnInit {
   telefon:any;
   adresa:any;
   opis:any;
+  backOglas:any;
   public readonly control = new FileUploadControl(
     { listVisible: true, accept: ['image/*'], discardInvalid: true, multiple: false },
     [FileUploadValidators.accept(['image/*']), FileUploadValidators.filesLimit(1)]
@@ -38,12 +40,16 @@ export class AngazmanComponent implements OnInit {
     [FileUploadValidators.accept(['image/*']), FileUploadValidators.filesLimit(1)]
   );
 
+  RouteDetalji(){
+    this.router.navigateByUrl("/detalji",{state:this.backOglas})
+  }
   public demoForm = new FormGroup({
     files: this.filesControl
   });
 
-  constructor(private _formBuilder: FormBuilder, private toastr:ToastrService) {
+  constructor(private _formBuilder: FormBuilder, private toastr:ToastrService, private router:Router) {
    this.angazmani= Angazmani;
+   this.backOglas=router.getCurrentNavigation()?.extras.state;
 
   }
   private getImage(file: File): void {

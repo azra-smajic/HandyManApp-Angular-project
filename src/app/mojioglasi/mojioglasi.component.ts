@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MojiOglasi} from "../data/database/podaci";
+import {MojiOglasi, Oglasi} from "../data/database/podaci";
 import {Router} from "@angular/router";
 
 @Component({
@@ -11,6 +11,7 @@ export class MojioglasiComponent implements OnInit {
   pageOfItems: any;
   p:number=1;
   oglasi:any;
+
   constructor(private router:Router) {
     this.oglasi=MojiOglasi;
   }
@@ -22,7 +23,8 @@ export class MojioglasiComponent implements OnInit {
     this.pageOfItems = pageOfItems;
   }
   Obrisi(indeks:any) {
-  MojiOglasi.splice(indeks,1)
+  MojiOglasi.splice(indeks,1);
+  Oglasi.splice(indeks,1)
 
   }
   UrediOglas(indeks:any,oglas:any){

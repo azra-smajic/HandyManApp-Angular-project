@@ -29,6 +29,9 @@ rating:['',Validators.required]
   ngOnInit(): void {
 
   }
+  Routeangazman(){
+    this.router.navigateByUrl("/angazman",{state:this.oglas})
+  }
   ChaneRating(){
       var NovaOcjena = (this.oglas.Ocjena + <number>this.form.value.rating) / 2;
       this.oglas.Ocjena = NovaOcjena;

@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb" >
+  <ol class="breadcrumb" style="background-color: white">
+    <li class="breadcrumb-item " aria-current="page"><a routerLink="">Pretraga oglasa</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Moje ponude</li>
+  </ol>
+</nav>
 <div class="oglasi">
   <mat-card class="example-card" *ngFor="let oglas of oglasi | paginate: { itemsPerPage: 6, currentPage: p};let i=index">
     <mat-card-title-group>

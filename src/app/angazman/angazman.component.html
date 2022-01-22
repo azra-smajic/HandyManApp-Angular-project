@@ -1,3 +1,10 @@
+<nav aria-label="breadcrumb" >
+  <ol class="breadcrumb" style="background-color: white">
+    <li class="breadcrumb-item " aria-current="page"><a routerLink="">Pretraga oglasa</a></li>
+    <li class="breadcrumb-item poznjet" aria-current="page" ><a (click)="RouteDetalji()" >Detalji o oglasu</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dogovori angažman</li>
+  </ol>
+</nav>
 <div class="sve">
 <mat-stepper linear #stepper style="height: auto">
   <mat-step [stepControl]="firstFormGroup" [editable]="true" style="height: 100%">
@@ -94,7 +101,7 @@
       <div>
         <button class="btn btn-outline-danger" style="position: relative;top: 20px;" routerLink="">Odustani</button>
         <button (click)="Poruka()" class="btn btn-outline-primary" matStepperNext style="position: relative;left: 85%;top: 20px;" >Sljedeći</button>
-        <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 70%;top: 20px;" >Nazad</button>
+        <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 72%;top: 20px;" >Nazad</button>
       </div>
     </form>
   </mat-step>
@@ -139,7 +146,7 @@
     <div style="position: relative;">
       <button class="btn btn-outline-danger" style="position: relative;height: auto" routerLink="">Odustani</button>
       <button (click)="Poruka1()" class="btn btn-outline-success" routerLink="" style="position: relative;left: 78%;top: 10px;" >Potvrdi angažman</button>
-      <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 57%;top: 10px;" >Nazad</button>
+      <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 60%;top: 10px;" >Nazad</button>
     </div>
   </mat-step>
 

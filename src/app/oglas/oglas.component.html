@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb" >
+  <ol class="breadcrumb" style="background-color: white">
+    <li class="breadcrumb-item " aria-current="page"><a routerLink="">Pretraga oglasa</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dodaj oglas</li>
+  </ol>
+</nav>
 <div class="sve">
   <mat-stepper linear #stepper style="height: 100%">
     <mat-step [stepControl]="secondFormGroup" [editable]="true" style="height: 100%">
@@ -91,7 +97,7 @@
 
       </div>
       <button class="btn btn-outline-danger" style="position: relative;" routerLink="">Odustani</button>
-      <button class="btn btn-outline-danger" style="position: relative;left: 72%;" routerLink="">Nazad</button>
+      <button class="btn btn-outline-warning" style="position: relative;left: 73%;" routerLink="">Nazad</button>
       <button (click)="Poruka2()" class="btn btn-outline-primary" matStepperNext style="position: relative;left: 75%;" >Sljedeći</button>
 
     </mat-step>
@@ -134,7 +140,7 @@
         <button *ngIf="!oglas" (click)="Poruka1()" class="btn btn-outline-success" routerLink="" style="position: relative;left: 83%;top: 10px;" >Objavi oglas</button>
         <button *ngIf="oglas" (click)="Update()" class="btn btn-outline-success" style="position: relative;left: 78%;top: 10px;" >Sačuvajte promjene</button>
         <button *ngIf="oglas" class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 56%;top: 10px;" >Nazad</button>
-        <button *ngIf="!oglas"  class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 65%;top: 10px;" >Nazad</button>
+        <button *ngIf="!oglas"  class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 67%;top: 10px;" >Nazad</button>
 
       </div>
     </mat-step>

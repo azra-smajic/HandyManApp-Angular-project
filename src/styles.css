@@ -6,3 +6,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.custom-container .mat-dialog-container {
+
+  -webkit-box-shadow: 1px -2px 15px 3px rgba(17, 77, 112, 0.89) !important;
+  box-shadow: 1px -2px 15px 3px rgb(31, 121, 159) !important;
+}

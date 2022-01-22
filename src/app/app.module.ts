@@ -34,6 +34,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { AddPonudaComponent } from './add-ponuda/add-ponuda.component';
 import { MojePonudeComponent } from './moje-ponude/moje-ponude.component';
+import { ONamaComponent } from './o-nama/o-nama.component';
+import { PomocComponent } from './pomoc/pomoc.component';
 
 
 const routes:Routes=[
@@ -49,6 +51,7 @@ const routes:Routes=[
   { path:'mojiOglasi', component: MojioglasiComponent},
   { path:'addPonuda', component: AddPonudaComponent},
   { path:'mojePonude', component: MojePonudeComponent},
+  { path:'pomoc', component: PomocComponent},
 
 
 
@@ -70,6 +73,8 @@ const routes:Routes=[
     NoviangazmaniComponent,
     AddPonudaComponent,
     MojePonudeComponent,
+    ONamaComponent,
+    PomocComponent,
 
 
 
