@@ -32,6 +32,8 @@ import { AngazmaniComponent } from './forms/angazmani/angazmani/angazmani.compon
 import { NoviangazmaniComponent } from './forms/angazmani/noviangazmani/noviangazmani.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
+import { AddPonudaComponent } from './add-ponuda/add-ponuda.component';
+import { MojePonudeComponent } from './moje-ponude/moje-ponude.component';
 
 
 const routes:Routes=[
@@ -45,6 +47,8 @@ const routes:Routes=[
   { path:'angazman', component: AngazmanComponent},
   { path:'dodajOglas', component: OglasComponent},
   { path:'mojiOglasi', component: MojioglasiComponent},
+  { path:'addPonuda', component: AddPonudaComponent},
+  { path:'mojePonude', component: MojePonudeComponent},
 
 
 
@@ -64,6 +68,8 @@ const routes:Routes=[
     ConfirmationDialogComponent,
     AngazmaniComponent,
     NoviangazmaniComponent,
+    AddPonudaComponent,
+    MojePonudeComponent,
 
 
 

@@ -83,7 +83,8 @@
     </ng-template>
   </file-upload>
     </form>`
-    <img *ngIf="Slika()" [src]="uploadedFiles" style="position: relative; width: 70%;height: 300px; left: 10%">
+
+    <img *ngIf="Slika()" [src]="uploadedFiles" style="position: relative; width: 60%;height: 300px; left: 10%">
   </div>
 </div>
       <div style="position: relative;top: 10px; border-top: 1px solid rgba(128,128,128,0.58);width: 55%">
@@ -130,8 +131,8 @@
         <textarea class="form-control"  placeholder="Ex. Ne radi mi mašina centrifugu" [(ngModel)]="opis" rows="3"></textarea><br>
       </div>
        <div class="desniD"style="width: 50%;left: 10%;position: relative;">
-
-         <img [src]="uploadedFiles" style="width: 70%;height: 250px;">
+<p style="font-size: large;font-weight: bold">Slika uređaja</p>
+         <img [src]="uploadedFiles" style="width: 30%;height: 150px;">
        </div>
      </div>
    </div>

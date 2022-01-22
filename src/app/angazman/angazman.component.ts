@@ -79,7 +79,8 @@ export class AngazmanComponent implements OnInit {
       Opis:this.opis,
       Datum:this.datum,
       Vrijeme:this.termin,
-      SlikaURL:this.uploadedFiles,
+      SlikaURL:
+    this.uploadedFiles,
       Prihvacen:false,
       Obrisan:false,
     })
@@ -95,12 +96,12 @@ export class AngazmanComponent implements OnInit {
       this.telefon=this.secondFormGroup.value.telefon;
       this.adresa=this.secondFormGroup.value.adresa;
       this.opis=this.secondFormGroup.value.opis;
-      this.uploadedFiles=this.demoForm.value.files[0]?.name;
+      this.uploadedFiles="http://localhost:4200/assets/"+this.demoForm.value.files[0]?.name;
     }
   }
   Slika(){
     if(this.demoForm.value.files!=null){
-      this.uploadedFiles=this.demoForm.value.files[0]?.name;}
+      this.uploadedFiles="http://localhost:4200/assets/"+this.demoForm.value.files[0]?.name;}
     return this.uploadedFiles;
   }
   PohraniDatum(){

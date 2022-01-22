@@ -50,6 +50,9 @@ export class AppComponent implements OnInit{
   Pocetna(){
     this.clickPretraga();
   }
+  ClickDodajPonudu(){
+
+  }
   ngOnInit(): void {
   }
 }

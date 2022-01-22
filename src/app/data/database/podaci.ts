@@ -57,6 +57,8 @@ export const Kantoni = [
 
   export const Oglasi:any=[];
   export const MojiOglasi:any=[];
+export const Ponude:any=[];
+export const MojePonude:any=[];
   export const Oblasti:any=[{
     Naziv:'Elektrika',},
     {Naziv: 'Ciscenje'},
@@ -68,11 +70,21 @@ export const Kantoni = [
 MojiOglasi.push({Naziv:"PROBATEST ",
   Grad:"Mostar",
   Podrucje:"Hercegovačko neretvanski",
-  Slika:"Firma.jpg",
+  Slika:"http://localhost:4200/assets/logo.jpg",
   Oblast:"Elektrika",
   BrojTelefona:"061/000-00",
   Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
   Ocjena:Math.random()})
+
+MojePonude.push({Naziv:"PonudaTest",
+  Grad:"Mostar",
+  Podrucje:"Hercegovačko neretvanski",
+  Slika:"http://localhost:4200/assets/masina.jpg",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
 
   for(let i =0;i<6;i++){
     Komenari.push({Ime:"Korisnik "+i,
@@ -82,46 +94,200 @@ MojiOglasi.push({Naziv:"PROBATEST ",
 
     })}
 
-  for(let i =0;i<6;i++){
-    Oglasi.push({Naziv:"Majstor E "+i,
-      Grad:"Grad "+i,
-      Podrucje:"Kanton "+i,
-      Slika:"Firma.jpg",
+Oglasi.push({Naziv:"Isak Banić",
+  Grad:"Mostar",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/19.png",
+  Oblast:"Cijevne instalacije",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+    Oglasi.push({Naziv:"Amar Šahinović",
+      Grad:"Mostar",
+      Podrucje:"Hercegovačko-Neretvanski",
+      Slika:"http://localhost:4200/assets/1.jfif",
       Oblast:"Elektrika",
-      BrojTelefona:"061/000-00"+i,
-      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
+      BrojTelefona:"061/000-00",
+      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
       Ocjena:Math.random()})
-  }
-  for(let i =0;i<6;i++){
-    Oglasi.push({Naziv:"Majstor K "+i,
-      Podrucje:"Kanton "+i,
-      Grad:"Grad "+i,
-      Slika:"Firma.jpg",
-      Oblast:"Keramika",
-      BrojTelefona:"061/000-00"+i,
-      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
-      Ocjena:Math.random()})
-  }
-  for(let i =0;i<6;i++){
-    Oglasi.push({Naziv:"Majstor C "+i,
-      Podrucje:"Kanton "+i,
-      Grad:"Grad "+i,
-      Slika:"Firma.jpg",
-      Oblast:"Ciscenje",
-      BrojTelefona:"061/000-00"+i,
-      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
-      Ocjena:Math.random()})
-  }
-  for(let i =0;i<6;i++){
-    Oglasi.push({Naziv:"Majstor CI "+i,
-      Podrucje:"Kanton "+i,
-      Grad:"Grad "+i,
-      Slika:"Firma.jpg",
-      Oblast:"Cijevne instalacije",
-      BrojTelefona:"061/000-00"+i,
-      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  "+i,
-      Ocjena:Math.random()})
-  }
+Oglasi.push({Naziv:"Dani Turić",
+  Grad:"Mostar",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/7.jpg",
+  Oblast:"Keramika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
+Oglasi.push({Naziv:"Dani Mulić",
+  Grad:"Jablanica",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/2.png",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Arman Musić",
+  Grad:"Jablanica",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/14.jpg",
+  Oblast:"Ciscenje",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Imran Čusto",
+  Grad:"Konjic",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/3.jpg",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Harun Čavčić",
+  Grad:"Sarajevo",
+  Podrucje:"Sarajevski kanton",
+  Slika:"http://localhost:4200/assets/4.jpg",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Muhamed Darić",
+  Grad:"Konjic",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/21.jpg",
+  Oblast:"Cijevne instalacije",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
+Oglasi.push({Naziv:"Edin Muzaferija",
+  Grad:"Zenica",
+  Podrucje:"Zeničko-Dobojski",
+  Slika:"http://localhost:4200/assets/5.jpg",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Hanad Đulić",
+  Grad:"Jablanica",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/8.jfif",
+  Oblast:"Keramika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Ahmed Isić",
+  Grad:"Doboj",
+  Podrucje:"Zeničko-Dobojski",
+  Slika:"http://localhost:4200/assets/6.jfif",
+  Oblast:"Elektrika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
+
+
+
+
+Oglasi.push({Naziv:"Ernes Mustafić",
+  Grad:"Konjic",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/9.jpg",
+  Oblast:"Keramika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Admir Nuhić",
+  Grad:"Mostar",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/13.jpg",
+  Oblast:"Ciscenje",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Nizan Lapo",
+  Grad:"Sarajevo",
+  Podrucje:"Sarajevski kanton",
+  Slika:"http://localhost:4200/assets/10.jpg",
+  Oblast:"Keramika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Muhamed Halebić",
+  Grad:"Konjic",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/15.jpg",
+  Oblast:"Ciscenje",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Ali Kadić",
+  Grad:"Zenica",
+  Podrucje:"Zeničko-Dobojski",
+  Slika:"http://localhost:4200/assets/11.png",
+  Oblast:"Keramika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Emrah Zvizdić",
+  Grad:"Sarajevo",
+  Podrucje:"Sarajevski kanton",
+  Slika:"http://localhost:4200/assets/16.jpg",
+  Oblast:"Ciscenje",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Mirsad Bećić",
+  Grad:"Doboj",
+  Podrucje:"Zeničko-Dobojski",
+  Slika:"http://localhost:4200/assets/12.jpg",
+  Oblast:"Keramika",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
+
+
+Oglasi.push({Naziv:"Adin Musić",
+  Grad:"Jablanica",
+  Podrucje:"Hercegovačko-Neretvanski",
+  Slika:"http://localhost:4200/assets/20.png",
+  Oblast:"Cijevne instalacije",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
+
+
+Oglasi.push({Naziv:"Dino Muzaferija",
+  Grad:"Zenica",
+  Podrucje:"Zeničko-Dobojski",
+  Slika:"http://localhost:4200/assets/17.jpg",
+  Oblast:"Ciscenje",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+Oglasi.push({Naziv:"Tarik Bojkić",
+  Grad:"Doboj",
+  Podrucje:"Zeničko-Dobojski",
+  Slika:"http://localhost:4200/assets/18.png",
+  Oblast:"Ciscenje",
+  BrojTelefona:"061/000-00",
+  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Ocjena:Math.random()})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   export const Uloge = ["Potražitelj usluga", "Majstor"];
 

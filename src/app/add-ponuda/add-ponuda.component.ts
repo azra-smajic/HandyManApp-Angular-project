@@ -1,16 +1,17 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FileUploadControl, FileUploadValidators} from "@iplab/ngx-file-upload";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
-import {Angazmani, Kantoni, MojiOglasi, Oblasti, Oglasi} from "../data/database/podaci";
 import {Router} from "@angular/router";
+import {Angazmani, Kantoni, MojePonude, MojiOglasi, Oblasti, Oglasi, Ponude} from "../data/database/podaci";
 
 @Component({
-  selector: 'app-oglas',
-  templateUrl: './oglas.component.html',
-  styleUrls: ['./oglas.component.css']
+  selector: 'app-add-ponuda',
+  templateUrl: './add-ponuda.component.html',
+  styleUrls: ['./add-ponuda.component.css']
 })
-export class OglasComponent implements OnInit {
+export class AddPonudaComponent implements OnInit {
+
   firstFormGroup: any;
   secondFormGroup: any;
   isEditable = false;
@@ -53,14 +54,14 @@ export class OglasComponent implements OnInit {
     this.angazmani= Angazmani;
 
   }
-UcitajPodatke(oglas:any){
-  this.firstFormGroup.controls['opis1'].setValue(oglas.oglas.Opis);
-  this.secondFormGroup.controls['ime'].setValue(oglas.oglas.Naziv);
-  this.secondFormGroup.controls['telefon'].setValue(oglas.oglas.BrojTelefona);
-  this.secondFormGroup.controls['KantonID'].setValue(oglas.oglas.Podrucje);
-  this.secondFormGroup.controls['GradID'].setValue(oglas.oglas.Grad);
-  this.secondFormGroup.controls['OblastID'].setValue(oglas.oglas.Oblast);
-}
+  UcitajPodatke(oglas:any){
+    this.firstFormGroup.controls['opis1'].setValue(oglas.oglas.Opis);
+    this.secondFormGroup.controls['ime'].setValue(oglas.oglas.Naziv);
+    this.secondFormGroup.controls['telefon'].setValue(oglas.oglas.BrojTelefona);
+    this.secondFormGroup.controls['KantonID'].setValue(oglas.oglas.Podrucje);
+    this.secondFormGroup.controls['GradID'].setValue(oglas.oglas.Grad);
+    this.secondFormGroup.controls['OblastID'].setValue(oglas.oglas.Oblast);
+  }
   ngOnInit() {
 
 
@@ -96,9 +97,9 @@ UcitajPodatke(oglas:any){
   Update(){
     this.toastr.success("Uspješno ste dodali sačuvali promjene","Čestitamo");
 
-    Oglasi.splice(this.oglas.indeks,1);
-    MojiOglasi.splice(this.oglas.indeks,1);
-    Oglasi.push({Naziv:this.ime,
+    Ponude.splice(this.oglas.indeks,1);
+    MojePonude.splice(this.oglas.indeks,1);
+    Ponude.push({Naziv:this.ime,
       Grad:this.grad,
       Podrucje:this.regija,
       Slika:this.uploadedFiles,
@@ -106,7 +107,7 @@ UcitajPodatke(oglas:any){
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
-    MojiOglasi.push({Naziv:this.ime,
+    MojePonude.push({Naziv:this.ime,
       Grad:this.grad,
       Podrucje:this.regija,
       Slika:this.uploadedFiles,
@@ -114,11 +115,11 @@ UcitajPodatke(oglas:any){
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
-    this.router.navigateByUrl('/mojiOglasi');
+    this.router.navigateByUrl('/mojePonude');
   }
   Poruka1(){
     this.toastr.success("Uspješno ste dodali oglas","Čestitamo");
-    Oglasi.push({Naziv:this.ime,
+    Ponude.push({Naziv:this.ime,
       Grad:this.grad,
       Podrucje:this.regija,
       Slika:this.uploadedFiles,
@@ -126,7 +127,7 @@ UcitajPodatke(oglas:any){
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
-    MojiOglasi.push({Naziv:this.ime,
+    MojePonude.push({Naziv:this.ime,
       Grad:this.grad,
       Podrucje:this.regija,
       Slika:this.uploadedFiles,
@@ -134,11 +135,11 @@ UcitajPodatke(oglas:any){
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
-
+    this.router.navigateByUrl('');
   }
 
   Poruka2(){
-      this.opis=this.firstFormGroup.value.opis1;
+    this.opis=this.firstFormGroup.value.opis1;
   }
   Poruka(){
     if (this.secondFormGroup.value.ime=='' || this.secondFormGroup.value.KantonID=='' ||this.secondFormGroup.value.GradID=='' ||this.secondFormGroup.value.telefon==''  )
@@ -155,32 +156,13 @@ UcitajPodatke(oglas:any){
 
     }
   }
-  PohraniDatum(){
-    this.datum="20-01-2022";
 
-    this.picker.nativeElement.style.display="none";
-    this.picker1.nativeElement.style.display="block";
-
-  }
   Slika(){
     if(this.demoForm.value.files!=null){
-    this.uploadedFiles="http://localhost:4200/assets/"+this.demoForm.value.files[0]?.name;}
+      this.uploadedFiles="http://localhost:4200/assets/"+this.demoForm.value.files[0]?.name;}
     return this.uploadedFiles;
   }
-  PogresanDatum(){
-    this.toastr.warning("Nemoguće odabrati ovaj datum","Upozorenje")
-  }
-  PohraniVrijeme(){
-    this.termin="15:00-16:00";
 
-  }
-  PogresnoVrijeme(){
-    this.toastr.warning("Nemoguće odabrati ovaj termin","Upozorenje")
-  }
-  ObrisiUnos(){
-    this.termin="";
-    this.datum="";
-    this.picker.nativeElement.style.display="block";
-    this.picker1.nativeElement.style.display="none";
-  }
+
+
 }

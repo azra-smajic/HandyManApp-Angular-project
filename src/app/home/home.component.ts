@@ -25,7 +25,7 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('elementRef') elementRef: any;
   pretraga:any="";
   constructor(public router:Router,private toastr:ToastrService) {
-    this.oglasi=Oglasi;
+    this.oglasi=Oglasi.reverse();
      this.oglasiCijeli=this.oglasi;
   }
   ngAfterViewInit() {
@@ -42,7 +42,7 @@ export class HomeComponent implements AfterViewInit {
       this.oglasi=this.oglasiCijeli;
       this.toastr.warning("Nije pronađen rezultat za vašu pretragu")
       return;}
-    var niz=this.oglasiCijeli.filter((x:any)=>x.Naziv==this.pretraga || x.Grad==this.pretraga);
+    var niz=this.oglasi.filter((x:any)=>x.Naziv.startsWith(this.pretraga) || x.Grad.startsWith(this.pretraga) || x.Podrucje.startsWith(this.pretraga));
     if(niz==null || niz.length==0)
     {
       niz=this.oglasiCijeli;

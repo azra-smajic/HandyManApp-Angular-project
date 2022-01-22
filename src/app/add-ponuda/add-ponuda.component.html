@@ -7,21 +7,21 @@
           <div class="lijevi" style="width: 50%"><p style="font-size: large;font-weight: bold">
             <div class="form-group">
 
-            <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Ime i prezime</a><input class="form-control" formControlName="ime" type="search" placeholder="" aria-label="Search" ><br>
-            <label class="text-danger" *ngIf="secondFormGroup.get('ime')?.touched && secondFormGroup.get('ime')?.invalid">Ovo polje je obavezno!</label>
+              <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Ime i prezime</a><input class="form-control" formControlName="ime" type="search" placeholder="" aria-label="Search" ><br>
+              <label class="text-danger" *ngIf="secondFormGroup.get('ime')?.touched && secondFormGroup.get('ime')?.invalid">Ovo polje je obavezno!</label>
 
-          </div>
+            </div>
             <div class="form-group">
-            <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Kontakt telefon</a><input class="form-control" type="search" formControlName="telefon" placeholder="387 61 111 111" aria-label="Search" ><br>
+              <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Kontakt telefon</a><input class="form-control" type="search" formControlName="telefon" placeholder="387 61 111 111" aria-label="Search" ><br>
               <label class="text-danger" *ngIf="secondFormGroup.get('telefon')?.touched && secondFormGroup.get('telefon')?.invalid">Ovo polje je obavezno!</label>
 
             </div>
-              <div class="form-group">
+            <div class="form-group">
               <label style="font-weight: bold;font-size: large"><a style="color: red">*</a>Odaberite svoj kanton/regiju:</label>
               <select class="browser-default custom-select" formControlName="KantonID" (change)="handleChange(true)">
                 <option *ngFor="let kanton of GetKantone()" [value]="kanton.naziv">{{kanton.naziv}}</option>
               </select>
-                <label class="text-danger" *ngIf="secondFormGroup.get('KantonID')?.touched && secondFormGroup.get('KantonID')?.invalid">Ovo polje je obavezno!</label>
+              <label class="text-danger" *ngIf="secondFormGroup.get('KantonID')?.touched && secondFormGroup.get('KantonID')?.invalid">Ovo polje je obavezno!</label>
 
             </div>
 
@@ -61,32 +61,32 @@
       <ng-template matStepLabel>Dodatni podaci</ng-template>
       <div class="justify" style="height: auto">
         <div class="lijevi" style="width: 40%;top: 120px">
-      <p style="font-size: large;font-weight: bold">Opis djelatnosti</p>
+          <p style="font-size: large;font-weight: bold">Opis problema</p>
           <form [formGroup]="firstFormGroup" style="height:auto">
-      <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="opis1" placeholder="Ex. Radim sve popravke"  rows="3"></textarea><br>
+            <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="opis1" placeholder="Primjer: Ne radi mi centrifuga"  rows="3"></textarea><br>
           </form>
         </div>
         <div class="desni"style="width: 45%">
-          <p style="font-size: large;font-weight: bold">Logo firme</p>
+          <p style="font-size: large;font-weight: bold">Slika uređaja</p>
           <form [formGroup]="demoForm">
-        <file-upload formControlName="files" [control]="filesUploadControl">
-          <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
-            <file-upload-drop-zone>
-              <ng-container *ngIf="isFileDragDropAvailable; else isNotDragDropAvailable">
-                <b>Prenesite sliku ovdje</b><br> ili kliknite
-              </ng-container>
-              <ng-template #isNotDragDropAvailable>
-                <b>Klicken Sie hier</b> um<br> eine Datei auszuwählen
+            <file-upload formControlName="files" [control]="filesUploadControl">
+              <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
+                <file-upload-drop-zone>
+                  <ng-container *ngIf="isFileDragDropAvailable; else isNotDragDropAvailable">
+                    <b>Prenesite sliku ovdje</b><br> ili kliknite
+                  </ng-container>
+                  <ng-template #isNotDragDropAvailable>
+                    <b>Klicken Sie hier</b> um<br> eine Datei auszuwählen
+                  </ng-template>
+                </file-upload-drop-zone>
               </ng-template>
-            </file-upload-drop-zone>
-          </ng-template>
 
-          <ng-template let-i="index" let-file="file" let-control="control" #item>
-            <file-upload-list-item  [index]="i" [file]="file" [control]="control">Obriši</file-upload-list-item>
-          </ng-template>
-        </file-upload>
-      </form>`
-      <img *ngIf="Slika()" [src]="uploadedFiles" style="position: relative; width: 70%;height: 250px; left: 10%">
+              <ng-template let-i="index" let-file="file" let-control="control" #item>
+                <file-upload-list-item  [index]="i" [file]="file" [control]="control">Obriši</file-upload-list-item>
+              </ng-template>
+            </file-upload>
+          </form>`
+          <img *ngIf="Slika()" [src]="uploadedFiles" style="position: relative; width: 70%;height: 250px; left: 10%">
         </div>
 
       </div>
@@ -112,18 +112,18 @@
 
 
           </div>
-          <div class="desniG"style="position: relative; left: 10%;width: 50%">
+          <div class="desniG"style="position: relative; left: 5%;width: 40%">
             <a style="font-size: large;font-weight: bold">Grad</a> <input class="form-control" type="search"  placeholder="Kolonija 26, Konjic" [(ngModel)]="grad"  aria-label="Search" ><br>
             <a style="font-size: large;font-weight: bold">Oblast</a> <input class="form-control" type="search"  placeholder="Kolonija 26, Konjic" [(ngModel)]="oblast"  aria-label="Search" ><br>
 
           </div>
         </div>
         <div class="donji"style="border-top: 1px solid rgba(128,128,128,0.7)" >
-          <div class="lijeviD" style="width: 50%">  <a style="font-size: large;font-weight: bold">Opis djelatnosti: </a>
+          <div class="lijeviD" style="width: 50%">  <a style="font-size: large;font-weight: bold">Opis problema: </a>
             <textarea class="form-control"  placeholder="Ex. Radim sve popravke" [(ngModel)]="opis" rows="3"></textarea><br>
           </div>
           <div class="desniD"style="width: 50%;left: 10%;position: relative;">
-            <p style="font-size: large;font-weight: bold">Logo firme: </p>
+            <p style="font-size: large;font-weight: bold">Slika uređaja: </p>
             <img [src]="uploadedFiles" style="width: 30%;height: 150px;">
           </div>
         </div>
@@ -131,12 +131,13 @@
       <div style="position: relative;">
 
         <button class="btn btn-outline-danger" style="position: relative;top: 10px;" routerLink="">Odustani</button>
-        <button *ngIf="!oglas" (click)="Poruka1()" class="btn btn-outline-success" routerLink="" style="position: relative;left: 83%;top: 10px;" >Objavi oglas</button>
+        <button *ngIf="!oglas" (click)="Poruka1()" class="btn btn-outline-success" routerLink="" style="position: relative;left: 82.5%;top: 10px;" >Objavi ponudu</button>
         <button *ngIf="oglas" (click)="Update()" class="btn btn-outline-success" style="position: relative;left: 78%;top: 10px;" >Sačuvajte promjene</button>
         <button *ngIf="oglas" class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 56%;top: 10px;" >Nazad</button>
-        <button *ngIf="!oglas"  class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 65%;top: 10px;" >Nazad</button>
+        <button *ngIf="!oglas"  class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 64.5%;top: 10px;" >Nazad</button>
 
       </div>
     </mat-step>
   </mat-stepper>
 </div>
+
