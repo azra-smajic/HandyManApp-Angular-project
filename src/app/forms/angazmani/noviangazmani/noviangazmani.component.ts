@@ -4,7 +4,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Angazman } from 'src/app/data/classes';
+import { Angazman, NavNotification } from 'src/app/data/classes';
 import { Angazmani } from 'src/app/data/database/podaci';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { OglasDetaljiComponent } from '../../oglas-detalji/oglas-detalji.component';
@@ -18,6 +18,9 @@ export class NoviangazmaniComponent implements AfterViewInit {
   displayedColumns: string[] = ['Naziv', 'Datum', 'Vrijeme', 'KratakOpis', 'Akcije'];
   dsNoviAngazmani = new MatTableDataSource<any>(Angazmani.filter(x => !x.Prihvacen && !x.Obrisan));
 
+  pretraga: string = "";
+  rezultatPretrage: boolean = false;
+  filterPodaci: any[] = [];
   @ViewChild(MatPaginator, { static: true }) pagNoviAngazmani!: MatPaginator;
 
   constructor(private toastr: ToastrService, public dialog: MatDialog) { }
@@ -35,30 +38,53 @@ export class NoviangazmaniComponent implements AfterViewInit {
     this.pagNoviAngazmani._intl.previousPageLabel = this.pagNoviAngazmani._intl.previousPageLabel = "Prethodna stranica";
 
   }
+  Pretraga() {
+    this.rezultatPretrage = true;
+    if (this.pretraga == "") {
+      this.filterPodaci = Angazmani.filter(x => !x.Prihvacen && !x.Obrisan);
+      this.UcitajAngazmane(this.filterPodaci);
+      return;
+    }
+
+    var niz = Angazmani.filter((x: any) => !x.Prihvacen && !x.Obrisan && (x.Naziv.includes(this.pretraga)
+      || x.Adresa.includes(this.pretraga) || x.Opis.includes(this.pretraga)
+      || x.Vrijeme.includes(this.pretraga) || x.Datum.includes(this.pretraga) || x.KontaktTelefon.includes(this.pretraga) || x.ImePotrazitelja.includes(this.pretraga)));
+    this.UcitajAngazmane(niz);
+  }
+  
+  keyDownFunction(event: any) {
+    if (event.keyCode === 13) {
+      this.Pretraga();
+    }
+  }
 
   async PrihvatiAngazman(id: number) {
-    if (await this.openDialog('Pitanje','Jeste li sigurni da želite prihvatiti ovaj angažman?')) {
+    if (await this.openDialog('Pitanje', 'Jeste li sigurni da želite prihvatiti ovaj angažman?')) {
       Angazmani.find(x => x.ID == id)!.Prihvacen = true;
       this.UcitajAngazmane();
       this.toastr.success("Uspješno ste prihvatili novi angažman.");
+      NavNotification.TajibVikaloPrihvatioPonudu = true;
+      NavNotification.Hidden = false;
     }
   }
 
   async OdbijAngazman(id: number) {
 
-    if (await this.openDialog('Pitanje','Jeste li sigurni da želite odbiti ovaj angažman?')) {
-        Angazmani.find(x => x.ID == id)!.Obrisan = true;
-        this.UcitajAngazmane();
-        this.toastr.success("Uspješno ste odbili novi angažman.");
+    if (await this.openDialog('Pitanje', 'Jeste li sigurni da želite odbiti ovaj angažman?')) {
+      Angazmani.find(x => x.ID == id)!.Obrisan = true;
+      this.UcitajAngazmane();
+      this.toastr.success("Uspješno ste odbili novi angažman.");
+      NavNotification.TajibVikaloOdbioPonudu = true;
+      NavNotification.Hidden = false;
     }
   }
 
-  UcitajAngazmane() {
-    this.dsNoviAngazmani = new MatTableDataSource<any>(Angazmani.filter(x => !x.Prihvacen && !x.Obrisan));
+  UcitajAngazmane(podaci: any = null) {
+    this.dsNoviAngazmani = new MatTableDataSource<any>(podaci ?? Angazmani.filter(x => !x.Prihvacen && !x.Obrisan).reverse());
     this.dsNoviAngazmani.paginator = this.pagNoviAngazmani;
   }
 
-  async openDialog(header:string, sadrzaj:string) {
+  async openDialog(header: string, sadrzaj: string) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
         Header: header,
@@ -68,17 +94,19 @@ export class NoviangazmaniComponent implements AfterViewInit {
     });
 
     let myPromise = new Promise(function (resolve) {
-      dialogRef.afterClosed().subscribe(result => {1
+      dialogRef.afterClosed().subscribe(result => {
+        1
         resolve(result?.OK ? true : false);
-      })});
+      })
+    });
 
-      return await myPromise;
-    }
+    return await myPromise;
+  }
 
-    Detalji(id:number){
-      this.dialog.open(OglasDetaljiComponent,{
-        data: Angazmani.filter(x=>x.ID==id)[0]
-      });
-    }
+  Detalji(id: number) {
+    this.dialog.open(OglasDetaljiComponent, {
+      data: Angazmani.filter(x => x.ID == id)[0]
+    });
+  }
 }
 

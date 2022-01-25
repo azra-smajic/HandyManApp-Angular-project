@@ -118,7 +118,7 @@ export class AddPonudaComponent implements OnInit {
     this.router.navigateByUrl('/mojePonude');
   }
   Poruka1(){
-    this.toastr.success("Uspješno ste dodali oglas","Čestitamo");
+    this.toastr.success("Uspješno ste dodali kvar. Očekujte ponude majstora.","Čestitamo");
     Ponude.push({Naziv:this.ime,
       Grad:this.grad,
       Podrucje:this.regija,

@@ -4,6 +4,8 @@ import {ToastrService} from "ngx-toastr";
 import {FileUploadControl, FileUploadValidators} from "@iplab/ngx-file-upload";
 import {BehaviorSubject} from "rxjs";
 import {Angazmani} from "../data/database/podaci";
+import {Router} from "@angular/router";
+import { NavNotification } from '../data/classes';
 
 @Component({
   selector: 'app-angazman',
@@ -28,6 +30,7 @@ export class AngazmanComponent implements OnInit {
   telefon:any;
   adresa:any;
   opis:any;
+  backOglas:any;
   public readonly control = new FileUploadControl(
     { listVisible: true, accept: ['image/*'], discardInvalid: true, multiple: false },
     [FileUploadValidators.accept(['image/*']), FileUploadValidators.filesLimit(1)]
@@ -38,12 +41,16 @@ export class AngazmanComponent implements OnInit {
     [FileUploadValidators.accept(['image/*']), FileUploadValidators.filesLimit(1)]
   );
 
+  RouteDetalji(){
+    this.router.navigateByUrl("/detalji",{state:this.backOglas})
+  }
   public demoForm = new FormGroup({
     files: this.filesControl
   });
 
-  constructor(private _formBuilder: FormBuilder, private toastr:ToastrService) {
+  constructor(private _formBuilder: FormBuilder, private toastr:ToastrService, private router:Router) {
    this.angazmani= Angazmani;
+   this.backOglas=router.getCurrentNavigation()?.extras.state;
 
   }
   private getImage(file: File): void {
@@ -84,6 +91,8 @@ export class AngazmanComponent implements OnInit {
       Prihvacen:false,
       Obrisan:false,
     })
+    NavNotification.AngazmaniNotification=true;
+    NavNotification.AzraSmajicPoslalaPonudu=true;
   }
   Poruka(){
     if (this.secondFormGroup.value.ime=='' || this.secondFormGroup.value.opis=='' ||this.secondFormGroup.value.adresa=='' ||this.secondFormGroup.value.telefon==''  )
@@ -112,14 +121,14 @@ export class AngazmanComponent implements OnInit {
 
   }
   PogresanDatum(){
-   this.toastr.warning("Nemoguće odabrati ovaj datum","Upozorenje")
+   this.toastr.warning("Svi termini za odabrani datum su popunjeni. Odaberite neki drugi datum.","Upozorenje")
   }
 PohraniVrijeme(){
   this.termin="15:00-16:00";
 
 }
 PogresnoVrijeme(){
-  this.toastr.warning("Nemoguće odabrati ovaj termin","Upozorenje")
+  this.toastr.warning("Taj termin je zauzet. Odaberite slobodan termin.","Upozorenje")
 }
   ObrisiUnos(){
     this.termin="";

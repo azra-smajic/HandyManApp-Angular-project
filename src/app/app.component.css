@@ -18,7 +18,22 @@
 
 .notification {
     position: absolute;
-    top: 17px;
-    right: 106px;
+    top: 9px;
+    right: 205px;
     z-index: 1;
+}
+
+.notification-ang {
+    position: absolute;
+    top: 7px;
+    right: 285px;
+    z-index: 1;
+}
+
+.nav-link {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.397);
+}
+
+.nav-link:hover {
+    background-color: rgba(153, 153, 153, 0.295);
 }

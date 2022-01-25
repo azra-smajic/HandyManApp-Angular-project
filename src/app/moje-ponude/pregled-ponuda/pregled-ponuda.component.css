@@ -19,3 +19,7 @@ mat-paginator {
 button {
     margin: 1%;
 }
+
+#akcije {
+    width: 350px;
+}

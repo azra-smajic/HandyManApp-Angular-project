@@ -1,8 +1,13 @@
-
-
+.poznjet{
+  color: #0066ff;
+  cursor: pointer;
+}
+.poznjet:hover{
+  text-decoration: underline;
+}
 .sve{
   position: relative;
-  top:5%;
+
   width: 70%;
   height: auto;
   left: 15%;

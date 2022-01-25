@@ -54,6 +54,8 @@ export class SlanjePonudeComponent {
     this.hello=PotraziteljOglasi.find(x=>x.ID==this.data.oglas.ID);;
     this.hello.Notification=true;
     NavNotification.PonudeNotification=true;
+    NavNotification.TajibVikaloPoslaoPonudu=true;
+    NavNotification.Hidden=false;
     var ponuda=new Ponuda();
     ponuda.ID=MajstorPonude.length+1;
     ponuda.MajstorID=this.data.korisnik.ID;

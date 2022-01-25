@@ -1,6 +1,6 @@
 .sve {
     width: 100%;
-    height: 92.5%;
+    height: 90.5%;
 }
 
 .pretraga {
@@ -44,7 +44,7 @@
 .oglasi {
     position: relative;
     width: 70%;
-    height: 85%;
+    height: 77%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -61,5 +61,5 @@
 .paging {
     position: absolute;
     top: 98%;
-    left: 28%;
+    left: 40%;
 }

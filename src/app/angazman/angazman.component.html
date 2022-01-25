@@ -1,147 +1,159 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" style="background-color: white">
+        <li class="breadcrumb-item " aria-current="page"><a routerLink="">Pretraga oglasa</a></li>
+        <li class="breadcrumb-item poznjet" aria-current="page"><a (click)="RouteDetalji()">Detalji o oglasu</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dogovori angažman</li>
+    </ol>
+</nav>
+<div style="width: 100%; text-align: center;">
+    <mat-card-title style="text-align: center; font-size: xx-large; color: rgba(110, 110, 110, 0.473);">Dogovaranje angažmana</mat-card-title>
+</div>
 <div class="sve">
-<mat-stepper linear #stepper style="height: auto">
-  <mat-step [stepControl]="firstFormGroup" [editable]="true" style="height: 100%">
-<div class="justify">
+    <mat-stepper linear #stepper style="height: auto">
+        <mat-step [stepControl]="firstFormGroup" [editable]="true" style="height: 100%">
+            <div class="justify">
 
 
-    <form [formGroup]="firstFormGroup" style="height: 600px">
-      <ng-template matStepLabel>Biranje termina</ng-template>
-     <p style="font-family: 'Mochiy Pop P One', sans-serif;">Odaberite svoj termin</p>
-      <div class="btn-group" role="group" aria-label="Basic example"style="position: relative;bottom: 20px;top: 20px">
-        <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani datum je :</button>
-        <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{datum}}</button>
-      </div><br>
-      <div class="btn-group" role="group" aria-label="Basic example"style="position: relative;bottom: 20px;top: 40px " *ngIf="datum">
-        <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani termin je :</button>
-        <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{termin}}</button>
-      </div><br>
+                <form [formGroup]="firstFormGroup" style="height: 600px">
+                    <ng-template matStepLabel>Biranje termina</ng-template>
+                    <p style="font-family: 'Mochiy Pop P One', sans-serif;">Odaberite svoj termin</p>
+                    <div class="btn-group" role="group" aria-label="Basic example" style="position: relative;bottom: 20px;top: 20px">
+                        <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani datum je :</button>
+                        <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{datum}}</button>
+                    </div><br>
+                    <div class="btn-group" role="group" aria-label="Basic example" style="position: relative;bottom: 20px;top: 40px " *ngIf="datum">
+                        <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani termin je :</button>
+                        <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{termin}}</button>
+                    </div><br>
 
-      <div>
-        <div style="position: relative;top: 300px; border-top: 1px solid rgba(128,128,128,0.58);width: 100%">
-        <div style="font-weight: bold;font-size: large">Napomena: </div>
-        <div>Polja označena <a style="color: red">crvenim </a>kružićima su zauzeti termini i ne mogu se odabrati</div>
-        </div>
-          <button class="btn btn-outline-danger" style="position: relative;top: 350px;" routerLink="">Odustani</button>
-        <button *ngIf="datum" class="btn btn-outline-dark"  style="position: relative;top: 150px; right: 95px" (click)="ObrisiUnos()">Obriši unose</button>
-        <button *ngIf="termin" class="btn btn-outline-primary" matStepperNext style="position: relative;top: 350px;left: 155%" >Sljedeći</button>
+                    <div>
+                        <div style="position: relative;top: 300px; border-top: 1px solid rgba(128,128,128,0.58);width: 100%">
+                            <div style="font-weight: bold;font-size: large">Napomena: </div>
+                            <div>Polja označena <a style="color: red">crvenom </a>bojom su zauzeti termini i ne mogu se odabrati</div>
+                        </div>
+                        <button class="btn btn-outline-danger" style="position: relative;top: 350px;" routerLink="">Odustani</button>
+                        <button *ngIf="datum" class="btn btn-outline-dark" style="position: relative;top: 150px; right: 95px" (click)="ObrisiUnos()">Obriši unose</button>
+                        <button *ngIf="termin" class="btn btn-outline-primary" matStepperNext style="position: relative;top: 350px;left: 155%">Sljedeći</button>
 
-      </div>
-    </form>
+                    </div>
+                </form>
 
-  <div #datum1 class="datum" >
-    <a (click)="PohraniDatum()" style="position: relative;top: 220px;left: 45%;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0);cursor: pointer">Upri</a>
-    <a (click)="PogresanDatum()" style="position: relative;top: 260px;left: 67%;cursor: pointer;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0)">Upri</a>
-    <div></div>
+                <div #datum1 class="datum">
+                    <a (click)="PohraniDatum()" style="position: relative;top: 220px;left: 45%;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0);cursor: pointer">Upri</a>
+                    <a (click)="PogresanDatum()" style="position: relative;top: 260px;left: 67%;cursor: pointer;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0)">Upri</a>
+                    <div></div>
 
-  </div>
-  <div #vrijeme1 class="vrijeme" style="position: relative;bottom: 30px;" >
-    <button (click)="PogresnoVrijeme()" style="outline: none; border: none;  position: relative;top: 210px;left: 15%;;cursor: pointer;width: 30%;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0)">Upri</button>
-    <button (click)="PohraniVrijeme()" style="outline: none;border: none;  position: relative;top: 260px;cursor: pointer;width: 30%;right: 80px;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0)">Upri</button>
-  </div>
-</div>
+                </div>
+                <div #vrijeme1 class="vrijeme" style="position: relative;bottom: 30px;">
+                    <button (click)="PogresnoVrijeme()" style="outline: none; border: none;  position: relative;top: 210px;left: 15%;;cursor: pointer;width: 30%;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0)">Upri</button>
+                    <button (click)="PohraniVrijeme()" style="outline: none;border: none;  position: relative;top: 260px;cursor: pointer;width: 30%;right: 80px;background-color: rgba(255,255,255,0);color: rgba(255,255,255,0)">Upri</button>
+                </div>
+            </div>
 
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [editable]="true"  style="height: auto">
-    <form [formGroup]="secondFormGroup" style="height:auto">
-      <ng-template matStepLabel>Dodatni podaci</ng-template>
-<div class="justify">
-  <div class="lijevi" style="width: 50%"><p style="font-size: large;font-weight: bold"><a style="color: red">*</a>Opišite problem</p>
-    <div class="form-group">
-    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ex. Ne radi mi mašina centrifugu" formControlName="opis" rows="3"></textarea><br>
-      <label class="text-danger" *ngIf="secondFormGroup.get('opis')?.touched && secondFormGroup.get('opis')?.invalid">Ovo polje je obavezno!</label>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" [editable]="true" style="height: auto">
+            <form [formGroup]="secondFormGroup" style="height:auto">
+                <ng-template matStepLabel>Dodatni podaci</ng-template>
+                <div class="justify">
+                    <div class="lijevi" style="width: 50%">
+                        <p style="font-size: large;font-weight: bold"><a style="color: red">*</a>Opišite problem</p>
+                        <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ex. Ne radi mi mašina centrifugu" formControlName="opis" rows="3"></textarea><br>
+                            <label class="text-danger" *ngIf="secondFormGroup.get('opis')?.touched && secondFormGroup.get('opis')?.invalid">Ovo polje je obavezno!</label>
 
-    </div>
-    <div class="form-group">
-    <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Ime i prezime</a><input class="form-control" formControlName="ime" type="search" placeholder="" aria-label="Search" ><br>
-      <label class="text-danger" *ngIf="secondFormGroup.get('ime')?.touched && secondFormGroup.get('ime')?.invalid">Ovo polje je obavezno!</label>
-    </div>
-    <div class="form-group">
-    <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Kontakt telefon</a><input class="form-control" type="search" formControlName="telefon" placeholder="387 61 111 111" aria-label="Search" ><br>
-      <label class="text-danger" *ngIf="secondFormGroup.get('telefon')?.touched && secondFormGroup.get('telefon')?.invalid">Ovo polje je obavezno!</label>
-    </div>
-    <div class="form-group">
-    <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Adresa</a> <input class="form-control" type="search" formControlName="adresa" placeholder="Kolonija 26, Konjic" aria-label="Search" ><br>
-      <label class="text-danger" *ngIf="secondFormGroup.get('adresa')?.touched && secondFormGroup.get('adresa')?.invalid">Ovo polje je obavezno!</label>
-    </div>
-    </div>
-  <div class="desni" style="width: 40%;position: relative;left: 5%;"><p style="font-size: large;font-weight: bold">Umetnite sliku</p>
-    <form [formGroup]="demoForm">
-    <file-upload formControlName="files" [control]="filesUploadControl">
-    <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
-      <file-upload-drop-zone>
-        <ng-container *ngIf="isFileDragDropAvailable; else isNotDragDropAvailable">
-           <b>Prenesite sliku ovdje</b><br> ili kliknite
-        </ng-container>
-        <ng-template #isNotDragDropAvailable>
-          <b>Klicken Sie hier</b> um<br> eine Datei auszuwählen
-        </ng-template>
-      </file-upload-drop-zone>
-    </ng-template>
+                        </div>
+                        <div class="form-group">
+                            <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Ime i prezime</a><input class="form-control" formControlName="ime" type="search" placeholder="" aria-label="Search"><br>
+                            <label class="text-danger" *ngIf="secondFormGroup.get('ime')?.touched && secondFormGroup.get('ime')?.invalid">Ovo polje je obavezno!</label>
+                        </div>
+                        <div class="form-group">
+                            <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Kontakt telefon</a><input class="form-control" type="search" formControlName="telefon" placeholder="387 61 111 111" aria-label="Search"><br>
+                            <label class="text-danger" *ngIf="secondFormGroup.get('telefon')?.touched && secondFormGroup.get('telefon')?.invalid">Ovo polje je obavezno!</label>
+                        </div>
+                        <div class="form-group">
+                            <a style="font-size: large;font-weight: bold"><a style="color: red">*</a>Adresa</a> <input class="form-control" type="search" formControlName="adresa" placeholder="Kolonija 26, Konjic" aria-label="Search"><br>
+                            <label class="text-danger" *ngIf="secondFormGroup.get('adresa')?.touched && secondFormGroup.get('adresa')?.invalid">Ovo polje je obavezno!</label>
+                        </div>
+                    </div>
+                    <div class="desni" style="width: 40%;position: relative;left: 5%;">
+                        <p style="font-size: large;font-weight: bold">Umetnite sliku</p>
+                        <form [formGroup]="demoForm">
+                            <file-upload formControlName="files" [control]="filesUploadControl">
+                                <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
+                                    <file-upload-drop-zone>
+                                        <ng-container *ngIf="isFileDragDropAvailable; else isNotDragDropAvailable">
+                                            <b>Prenesite sliku ovdje</b><br> ili kliknite
+                                        </ng-container>
+                                        <ng-template #isNotDragDropAvailable>
+                                            <b>Klicken Sie hier</b> um<br> eine Datei auszuwählen
+                                        </ng-template>
+                                    </file-upload-drop-zone>
+                                </ng-template>
 
-    <ng-template let-i="index" let-file="file" let-control="control" #item>
-      <file-upload-list-item  [index]="i" [file]="file" [control]="control">Obriši</file-upload-list-item>
-    </ng-template>
-  </file-upload>
-    </form>`
+                                <ng-template let-i="index" let-file="file" let-control="control" #item>
+                                    <file-upload-list-item [index]="i" [file]="file" [control]="control">Obriši</file-upload-list-item>
+                                </ng-template>
+                            </file-upload>
+                        </form>`
 
-    <img *ngIf="Slika()" [src]="uploadedFiles" style="position: relative; width: 60%;height: 300px; left: 10%">
-  </div>
-</div>
-      <div style="position: relative;top: 10px; border-top: 1px solid rgba(128,128,128,0.58);width: 55%">
-        <div style="font-weight: bold;font-size: large">Napomena: </div>
-        <div>Polja označena <a style="color: red">* </a>su obavezna polja</div>
-      </div>
-      <div>
-        <button class="btn btn-outline-danger" style="position: relative;top: 20px;" routerLink="">Odustani</button>
-        <button (click)="Poruka()" class="btn btn-outline-primary" matStepperNext style="position: relative;left: 85%;top: 20px;" >Sljedeći</button>
-        <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 70%;top: 20px;" >Nazad</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step  style="height: 600px">
-    <ng-template matStepLabel>Pregled</ng-template>
-    <p style="font-size:larger;font-weight: bold">Pregled unešenih podataka</p>
-   <div class="justifyZadnji">
+                        <img *ngIf="Slika()" [src]="uploadedFiles" style="position: relative; width: 60%;height: 300px; left: 10%">
+                    </div>
+                </div>
+                <div style="position: relative;top: 10px; border-top: 1px solid rgba(128,128,128,0.58);width: 55%">
+                    <div style="font-weight: bold;font-size: large">Napomena: </div>
+                    <div>Polja označena <a style="color: red">* </a>su obavezna polja</div>
+                </div>
+                <div>
+                    <button class="btn btn-outline-danger" style="position: relative;top: 20px;" routerLink="">Odustani</button>
+                    <button (click)="Poruka()" class="btn btn-outline-primary" matStepperNext style="position: relative;left: 85%;top: 20px;">Sljedeći</button>
+                    <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 72%;top: 20px;">Nazad</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step style="height: 600px">
+            <ng-template matStepLabel>Pregled</ng-template>
+            <p style="font-size:larger;font-weight: bold">Pregled unešenih podataka</p>
+            <div class="justifyZadnji">
 
-     <div class="gornji" >
-       <div class="lijeviG" style="width: 50%; border-right: 1px solid rgba(128,128,128,0.7);padding-right: 5%">
+                <div class="gornji">
+                    <div class="lijeviG" style="width: 50%; border-right: 1px solid rgba(128,128,128,0.7);padding-right: 5%">
 
-         <a style="font-size: large;font-weight: bold">Ime i prezime</a><input class="form-control"  type="search" placeholder="" [(ngModel)]="ime" aria-label="Search" ><br>
-           <a style="font-size: large;font-weight: bold">Kontakt telefon</a><input class="form-control" type="search" placeholder="387 61 111 111" [(ngModel)]="telefon"  aria-label="Search" ><br>
-           <a style="font-size: large;font-weight: bold">Adresa</a> <input class="form-control" type="search"  placeholder="Kolonija 26, Konjic" [(ngModel)]="adresa"  aria-label="Search" ><br>
-
-
+                        <a style="font-size: large;font-weight: bold">Ime i prezime</a><input class="form-control" type="search" placeholder="" [(ngModel)]="ime" aria-label="Search"><br>
+                        <a style="font-size: large;font-weight: bold">Kontakt telefon</a><input class="form-control" type="search" placeholder="387 61 111 111" [(ngModel)]="telefon" aria-label="Search"><br>
+                        <a style="font-size: large;font-weight: bold">Adresa</a> <input class="form-control" type="search" placeholder="Kolonija 26, Konjic" [(ngModel)]="adresa" aria-label="Search"><br>
 
 
-       </div>
-       <div class="desniG"style="position: relative; left: 10%">
-         <div class="btn-group" role="group" aria-label="Basic example"style="position: relative;bottom: 20px;top: 20px">
-           <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani datum je :</button>
-           <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{datum}}</button>
-         </div><br>
-         <div class="btn-group" role="group" aria-label="Basic example"style="position: relative;bottom: 20px;top: 40px " >
-           <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani termin je :</button>
-           <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{termin}}</button>
-         </div><br>
 
-       </div>
-     </div>
-     <div class="donji"style="border-top: 1px solid rgba(128,128,128,0.7)" >
-      <div class="lijeviD" style="width: 50%">  <a style="font-size: large;font-weight: bold">Opis problema</a>
-        <textarea class="form-control"  placeholder="Ex. Ne radi mi mašina centrifugu" [(ngModel)]="opis" rows="3"></textarea><br>
-      </div>
-       <div class="desniD"style="width: 50%;left: 10%;position: relative;">
-<p style="font-size: large;font-weight: bold">Slika uređaja</p>
-         <img [src]="uploadedFiles" style="width: 30%;height: 150px;">
-       </div>
-     </div>
-   </div>
-    <div style="position: relative;">
-      <button class="btn btn-outline-danger" style="position: relative;height: auto" routerLink="">Odustani</button>
-      <button (click)="Poruka1()" class="btn btn-outline-success" routerLink="" style="position: relative;left: 78%;top: 10px;" >Potvrdi angažman</button>
-      <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 57%;top: 10px;" >Nazad</button>
-    </div>
-  </mat-step>
 
-</mat-stepper>
+                    </div>
+                    <div class="desniG" style="position: relative; left: 10%">
+                        <div class="btn-group" role="group" aria-label="Basic example" style="position: relative;bottom: 20px;top: 20px">
+                            <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani datum je :</button>
+                            <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{datum}}</button>
+                        </div><br>
+                        <div class="btn-group" role="group" aria-label="Basic example" style="position: relative;bottom: 20px;top: 40px ">
+                            <button type="button" class="btn btn-secondary" style="background-color: deepskyblue;color: white;width: 200px;">Odabrani termin je :</button>
+                            <button type="button" class="btn btn-secondary" style="background-color: white;color: black;width: 200px;">{{termin}}</button>
+                        </div><br>
+
+                    </div>
+                </div>
+                <div class="donji" style="border-top: 1px solid rgba(128,128,128,0.7)">
+                    <div class="lijeviD" style="width: 50%"> <a style="font-size: large;font-weight: bold">Opis problema</a>
+                        <textarea class="form-control" placeholder="Ex. Ne radi mi mašina centrifugu" [(ngModel)]="opis" rows="3"></textarea><br>
+                    </div>
+                    <div class="desniD" style="width: 50%;left: 10%;position: relative;">
+                        <p style="font-size: large;font-weight: bold">Slika uređaja</p>
+                        <img [src]="uploadedFiles" style="width: 30%;height: 150px;">
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative;">
+                <button class="btn btn-outline-danger" style="position: relative;height: auto" routerLink="">Odustani</button>
+                <button (click)="Poruka1()" class="btn btn-outline-success" routerLink="" style="position: relative;left: 78%;top: 10px;">Potvrdi angažman</button>
+                <button class="btn btn-outline-warning" matStepperPrevious style="position: relative;left: 60%;top: 10px;">Nazad</button>
+            </div>
+        </mat-step>
+
+    </mat-stepper>
 </div>

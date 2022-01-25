@@ -4,6 +4,8 @@ import {FileUploadControl, FileUploadValidators} from "@iplab/ngx-file-upload";
 import {ToastrService} from "ngx-toastr";
 import {Angazmani, Kantoni, MojiOglasi, Oblasti, Oglasi} from "../data/database/podaci";
 import {Router} from "@angular/router";
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogYesNoComponent } from '../forms/confirmation-dialog/confirmation-dialog-yes-no/confirmation-dialog-yes-no.component';
 
 @Component({
   selector: 'app-oglas',
@@ -47,7 +49,7 @@ export class OglasComponent implements OnInit {
     files: this.filesControl
   });
 
-  constructor(private _formBuilder: FormBuilder, private toastr:ToastrService,public router:Router) {
+  constructor(private _formBuilder: FormBuilder, private toastr:ToastrService,public router:Router, private dialog:MatDialog) {
     this.oglas=router.getCurrentNavigation()?.extras.state
 
     this.angazmani= Angazmani;
@@ -116,6 +118,31 @@ UcitajPodatke(oglas:any){
       Ocjena:0})
     this.router.navigateByUrl('/mojiOglasi');
   }
+
+  async Odustani() {
+
+    if (await this.openDialog('Upozorenje','Jeste li sigurni da želite odustati od objavljivanja oglasa?')) {
+        this.router.navigateByUrl("");
+    }
+  }
+  
+  async openDialog(header:string, sadrzaj:string) {
+    const dialogRef = this.dialog.open(ConfirmationDialogYesNoComponent, {
+      data: {
+        Header: header,
+        Sadrzaj: sadrzaj,
+        OK: false
+      },
+    });
+  
+    let myPromise = new Promise(function (resolve) {
+      dialogRef.afterClosed().subscribe(result => {1
+        resolve(result?.OK ? true : false);
+      })});
+  
+      return await myPromise;
+    }
+
   Poruka1(){
     this.toastr.success("Uspješno ste dodali oglas","Čestitamo");
     Oglasi.push({Naziv:this.ime,
@@ -134,7 +161,6 @@ UcitajPodatke(oglas:any){
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
-
   }
 
   Poruka2(){

@@ -1,0 +1,7 @@
+<h1 md-dialog-title>{{data.Header}}</h1>
+<div md-dialog-content>{{data.Sadrzaj}}</div>
+<br>
+<div md-dialog-actions align="end">
+    <button class="btn btn-outline-danger" (click)="onNoClick()" [mat-dialog-close]="data" cdkFocusInitial>Ne</button>
+    <button style="margin-left: 10px;" class="btn btn-outline-success" (click)="Yes()" [mat-dialog-close]="data">Da</button>
+</div>

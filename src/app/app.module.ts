@@ -38,6 +38,10 @@ import { OglasiOdPotraziteljaComponent } from './oglasi-od-potrazitelja/oglasi-o
 import { DetaljiOglasaComponent } from './oglasi-od-potrazitelja/detalji-oglasa/detalji-oglasa.component';
 import { SlanjePonudeComponent } from './oglasi-od-potrazitelja/slanje-ponude/slanje-ponude.component';
 import { PregledPonudaComponent } from './moje-ponude/pregled-ponuda/pregled-ponuda.component';
+import { ONamaComponent } from './o-nama/o-nama.component';
+import { PomocComponent } from './pomoc/pomoc.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import { ConfirmationDialogYesNoComponent } from './forms/confirmation-dialog/confirmation-dialog-yes-no/confirmation-dialog-yes-no.component';
 
 
 const routes:Routes=[
@@ -51,10 +55,14 @@ const routes:Routes=[
   { path:'angazman', component: AngazmanComponent},
   { path:'dodajOglas', component: OglasComponent},
   { path:'mojiOglasi', component: MojioglasiComponent},
-  { path:'addPonuda', component: AddPonudaComponent},
-  { path:'mojePonude', component: MojePonudeComponent},
+  { path:'objavi-kvar', component: AddPonudaComponent},
+  { path:'moji-kvarovi', component: MojePonudeComponent},
   { path:'majstor-oglasi', component: OglasiOdPotraziteljaComponent},
   { path:'pregled-ponuda', component: PregledPonudaComponent},
+  { path:'pomoc', component: PomocComponent}
+
+
+
 ];
 @NgModule({
   declarations: [
@@ -77,6 +85,9 @@ const routes:Routes=[
     DetaljiOglasaComponent,
     SlanjePonudeComponent,
     PregledPonudaComponent,
+    ONamaComponent,
+    PomocComponent,
+    ConfirmationDialogYesNoComponent,
 
 
 
@@ -103,7 +114,8 @@ const routes:Routes=[
     FileUploadModule,
     MatPaginatorModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatBadgeModule
 
 
   ],

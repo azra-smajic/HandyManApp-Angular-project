@@ -59,4 +59,18 @@ export class Ponuda{
 export class NavNotification{
     public static PonudeNotification=false;
     public static AngazmaniNotification=false;
+
+    public static AzraSmajicPrihvatilaPonudu=false;
+    public static AzraSmajicOdbilaPonudu=false;
+    public static AzraSmajicPoslalaPonudu=false;
+
+    public static TajibVikaloPrihvatioPonudu=false;
+    public static TajibVikaloOdbioPonudu=false;
+    public static TajibVikaloPoslaoPonudu=false;
+
+    public static TrenutnoNotifikacija=0;
+
+    public static Hidden=false;
+
+
 }

@@ -13,8 +13,11 @@ import { OglasDetaljiComponent } from '../../oglas-detalji/oglas-detalji.compone
 })
 export class AngazmaniComponent implements AfterViewInit {
   displayedColumnsPrihvaceni: string[] = ['Naziv', 'Datum', 'Vrijeme', 'KratakOpis','Akcije'];
-  dsNoviAngazmani = new MatTableDataSource<any>(Angazmani.filter(x=>!x.Prihvacen));
-  dsPrihvaceniANgazmani = new MatTableDataSource<any>(Angazmani.filter(x=>x.Prihvacen));
+  dsPrihvaceniANgazmani = new MatTableDataSource<any>(Angazmani.filter(x=>x.Prihvacen).reverse());
+
+  pretraga: string = "";
+  rezultatPretrage: boolean = false;
+  filterPodaci: any[] = [];
 
   @ViewChild(MatPaginator, { static: true }) pagPrihvaceniAngazmani!: MatPaginator;
 
@@ -30,6 +33,32 @@ export class AngazmaniComponent implements AfterViewInit {
     this.pagPrihvaceniAngazmani._intl.firstPageLabel ="Vrati se na prvu stranicu";
     this.pagPrihvaceniAngazmani._intl.lastPageLabel="Idi na zadnju stranicu";
     this.pagPrihvaceniAngazmani._intl.previousPageLabel="Prethodna stranica";
+  }
+
+  Pretraga() {
+    this.rezultatPretrage = true;
+    if (this.pretraga == "") {
+      this.filterPodaci = Angazmani.filter(x => x.Prihvacen && !x.Obrisan);
+      this.UcitajAngazmane(this.filterPodaci);
+      return;
+    }
+
+    var niz = Angazmani.filter((x: any) => x.Prihvacen && !x.Obrisan && (x.Naziv.includes(this.pretraga)
+      || x.Adresa.includes(this.pretraga) || x.Opis.includes(this.pretraga)
+      || x.Vrijeme.includes(this.pretraga) || x.Datum.includes(this.pretraga) || x.KontaktTelefon.includes(this.pretraga) || x.ImePotrazitelja.includes(this.pretraga)));
+    this.UcitajAngazmane(niz);
+  }
+  
+  UcitajAngazmane(podaci: any = null) {
+    this.dsPrihvaceniANgazmani = new MatTableDataSource<any>(podaci ?? Angazmani.filter(x=>x.Prihvacen).reverse());
+    this.dsPrihvaceniANgazmani.paginator = this.pagPrihvaceniAngazmani;
+  }
+
+
+  keyDownFunction(event: any) {
+    if (event.keyCode === 13) {
+      this.Pretraga();
+    }
   }
 
   Detalji(id:number){

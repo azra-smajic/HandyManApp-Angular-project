@@ -8,18 +8,18 @@
         <div>
 
             <ul class="navbar-nav mr-auto" style="margin: 0 !important;">
-                <li (click)="Pocetna()" class="nav-item active">
+                <li (click)="Pocetna()" class="nav-item active" #pocetna>
                     <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%; left: 27%; cursor:pointer;" routerLink="">home</mat-icon><br>
-                    <a style="color: white;font-size: small;cursor: pointer;" routerLink="">Početna</a>
+                    <a style="color: rgba(255,255,255,0.84);font-size: small;cursor: pointer;" routerLink="">Početna</a>
                 </li>
-                <li class="nav-item active" style="position: relative; left:15%">
+                <li (click)="ClickPomoc()" routerLink="pomoc" class="nav-item active" style="cursor:pointer;position: relative; left:15%" #pomoc>
                     <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%; left: 27%">help</mat-icon><br>
-                    <a style="color: white;font-size: small">Pomoć</a>
+                    <a style="color: white;font-size: small;cursor: pointer;">Pomoć</a>
 
                 </li>
-                <li class="nav-item active" style="position: relative; left:32%">
+                <li class="nav-item active" style="position: relative; left:32%;cursor: pointer;" (click)="openAbout()" #about>
                     <mat-icon aria-hidden="false" aria-label="Example home icon" style="position: relative;top: 15%;left: 26%">info</mat-icon><br>
-                    <a style="color: white; font-size: small">O nama</a>
+                    <a style="color: white; font-size: small;cursor: pointer;">O nama</a>
                 </li>
             </ul>
         </div>
@@ -37,29 +37,47 @@
                 <li class="nav-item">
                     <a #nadjiPosao class="nav-link" style="color: white" routerLink="majstor-oglasi" (click)="clickNadjiPosao()" *ngIf="GetUloga()=='Majstor'">Nađi posao</a>
                 </li>
-                <li (click)="clickOglas()" class="nav-item">
-                    <a #dodajOglas style="color: white" class="nav-link" routerLink="dodajOglas" *ngIf="GetUloga()=='Majstor'">Dodaj oglas</a>
-                </li>
                 <li class="nav-item">
+                    <!-- <mat-icon *ngIf="GetAngazmanNotification()" class="notification-ang" color="warn">notifications</mat-icon> -->
                     <a class="nav-link" style="color:white;" #evidencija [matMenuTriggerFor]="belowMenu" *ngIf="GetUloga()=='Majstor'" (click)="clickEvidencija()">Angažmani</a>
                     <mat-menu #belowMenu="matMenu" yPosition="below">
                         <a class="nav-link" routerLink="/noviangazmani">Novi angažmani</a>
                         <a class="nav-link" routerLink="/prihvaceniangazmani">Prihvaćeni angažmani</a>
                     </mat-menu>
                 </li>
-                <li (click)="clickMojiOglasi()" class="nav-item" *ngIf="GetUloga()=='Majstor'">
-                    <a #mojiOglasi style="color: white" class="nav-link" href="#" routerLink="mojiOglasi">Moji oglasi</a>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" #oglasi [matMenuTriggerFor]="menu" *ngIf="GetUloga()=='Majstor'" (click)="clickOglas()">Oglasi</a>
+                    <mat-menu #menu="matMenu" yPosition="below">
+                        <a class="nav-link" routerLink="/dodajOglas">Dodaj oglas</a>
+                        <a class="nav-link" routerLink="/mojiOglasi">Moji oglasi</a>
+                    </mat-menu>
                 </li>
-                <li class="nav-item" *ngIf="GetUloga()=='Potražitelj usluga'">
-                    <a style="color: white" class="nav-link" href="#" routerLink="/addPonuda">Dodaj ponudu</a>
+
+                <li (click)="clickAddPonuda()" class="nav-item" *ngIf="GetUloga()=='Potražitelj usluga'">
+                    <a #addPonuda style="color: white" class="nav-link" href="#" routerLink="/addPonuda">Objavi kvar</a>
                 </li>
-                <li class="nav-item" *ngIf="GetUloga()=='Potražitelj usluga'">
-                    <mat-icon *ngIf="GetNotification()" class="notification" color="warn">notifications</mat-icon>
-                    <a style="color: white" class="nav-link" href="#" (click)="RouterLink()">Moje ponude</a>
+                <li (click)="clickMojePonude()" class="nav-item" *ngIf="GetUloga()=='Potražitelj usluga'">
+                    <a #MyPonuda style="color: white" class="nav-link" href="#" routerLink="/mojePonude">Moji kvarovi</a>
+                    <!-- <mat-icon *ngIf="GetPonudeNotification()" class="notification" color="warn">notifications</mat-icon> -->
                 </li>
                 <li class="nav-item" style="position: relative;" *ngIf="GetUser()==null">
                     <button type="button" routerLink="/prijava" class="btn btn-outline-light" style="padding: 0% 10% 6% 6%">
                   <mat-icon style="position: relative;top:6px">account_circle</mat-icon>Prijavi se</button>
+                </li>
+                <li class="nav-item" style="position: relative; margin: 0 25px;" *ngIf="GetUser()">
+                    <button (click)="Sakrij()" matBadge="1" [matBadgeHidden]="toggleBadgeVisibility()" matBadgeColor="warn" type="button" [matMenuTriggerFor]="menOglasi" class="btn btn-outline-warning" style="padding: 0% 10% 6% 6%">
+                <mat-icon style="position: relative;top:6px;">notifications</mat-icon>Notifikacije</button>
+                    <mat-menu #menOglasi="matMenu" matBadgeColor="warn" yPosition="below">
+                        <a *ngIf="GetUloga()=='Majstor'&&AzraSmajicPrihvatilaPonudu()" class="nav-link">Azra Smajić je prihvatila Vašu ponudu za popravku veš mašine.</a>
+                        <a *ngIf="GetUloga()=='Potražitelj usluga'&&TajibVikaloPrihvatioPonudu()" class="nav-link">Tajib Vikalo je prihvatio Vaš zahtjev za angažmanom.</a>
+                        <a *ngIf="GetUloga()=='Majstor'&&AzraSmajicOdbilaPonudu()" class="nav-link">Azra Smajić je odbila Vašu ponudu za popravku veš mašine.</a>
+                        <a *ngIf="GetUloga()=='Majstor'&&AzraSmajicPoslalaPonudu()" class="nav-link">Azra Smajić Vam je poslala ponudu za novi agnažman.</a>
+                        <a *ngIf="GetUloga()=='Potražitelj usluga'&&TajibVikaloPoslaoPonudu()" class="nav-link">Tajib Vikalo Vam je poslao ponudu za popravku veš mašine.</a>
+                        <a *ngIf="GetUloga()=='Potražitelj usluga'&&TajibVikaloOdbioPonudu()" class="nav-link">Tajib Vikalo je odbio Vašu ponudu za angažman.</a>
+                    </mat-menu>
                 </li>
                 <li class="nav-item" style="position: relative;" *ngIf="GetUser()">
                     <button type="button" (click)="OdjaviSe()" class="btn btn-outline-danger" style="padding: 0% 10% 6% 6%">

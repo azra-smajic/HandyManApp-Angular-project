@@ -1,17 +1,14 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {DBMock} from "../DBMock";
-import {Oblast} from "../Data";
-import {PageEvent} from "@angular/material/paginator";
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
-import { Oglasi } from '../data/database/podaci';
+import {Oglasi, Pomoc} from "../data/database/podaci";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-pomoc',
+  templateUrl: './pomoc.component.html',
+  styleUrls: ['./pomoc.component.css']
 })
-export class HomeComponent implements AfterViewInit {
+export class PomocComponent implements AfterViewInit {
 
   p:number=1;
   oglasi:any=[];
@@ -26,8 +23,10 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('elementRef') elementRef: any;
   pretraga:any="";
   constructor(public router:Router,private toastr:ToastrService) {
-    this.oglasi=Oglasi.reverse();
-     this.oglasiCijeli=this.oglasi;
+    this.oglasi=Pomoc;
+    this.oglasiCijeli=this.oglasi;
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Opće");
+    this.oglasi=niz;
   }
   ngAfterViewInit() {
     this.elementRef.nativeElement.focus();
@@ -43,22 +42,22 @@ export class HomeComponent implements AfterViewInit {
     if(this.pretraga==""){
       this.oglasi=this.oglasiCijeli;
       return;}
-    var niz=this.oglasi.filter((x:any)=>x.Naziv.startsWith(this.pretraga) || x.Grad.startsWith(this.pretraga) || x.Podrucje.startsWith(this.pretraga));
+    var niz=this.oglasiCijeli.filter((x:any)=>x.Naziv.includes(this.pretraga) ||  x.Opis.includes(this.pretraga));
     if(niz==null || niz.length==0)
     {
       this.rezultatPretrage=false;
-      }
+    }
     this.oglasi=niz;
   }
   keyDownFunction(event:any) {
     if (event.keyCode === 13) {
-     this.Pretraga();
+      this.Pretraga();
     }
   }
   RouteDetalji(oglas:any){
     this.router.navigateByUrl("/detalji",{state:oglas})
   }
-  ClickElektrika(){
+  ClickPrijava(){
     this.rezultatPretrage=true;
     this.dugme2.nativeElement.style.background="darkblue";
     this.dugme1.nativeElement.style.background="deepskyblue";
@@ -67,11 +66,11 @@ export class HomeComponent implements AfterViewInit {
     this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
-    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Elektrika");
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Prijava/Login");
     this.oglasi=niz;
 
   }
-  ClickSve(){
+  ClickOpce(){
     this.rezultatPretrage=true;
     this.dugme1.nativeElement.style.background="darkblue";
     this.dugme2.nativeElement.style.background="deepskyblue";
@@ -79,9 +78,11 @@ export class HomeComponent implements AfterViewInit {
     this.dugme4.nativeElement.style.background="deepskyblue";
     this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Opće");
+    this.oglasi=niz;
 
   }
-  ClickKeramika(){
+  ClickOglas(){
     this.rezultatPretrage=true;
     this.dugme3.nativeElement.style.background="darkblue";
     this.dugme1.nativeElement.style.background="deepskyblue";
@@ -90,10 +91,10 @@ export class HomeComponent implements AfterViewInit {
     this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
-    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Keramika");
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Oglasi");
     this.oglasi=niz;
   }
-  ClickCiscenje(){
+  ClickPonude(){
     this.rezultatPretrage=true;
     this.dugme4.nativeElement.style.background="darkblue";
     this.dugme1.nativeElement.style.background="deepskyblue";
@@ -102,11 +103,11 @@ export class HomeComponent implements AfterViewInit {
     this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
-    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Čiščenje");
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Ponude");
     this.oglasi=niz;
 
   }
-  ClickCijevi(){
+  ClickAngazman(){
     this.rezultatPretrage=true;
     this.dugme5.nativeElement.style.background="darkblue";
     this.dugme1.nativeElement.style.background="deepskyblue";
@@ -115,8 +116,9 @@ export class HomeComponent implements AfterViewInit {
     this.dugme2.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
-    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Cijevne instalacije");
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Angažmani");
     this.oglasi=niz;
 
   }
+
 }

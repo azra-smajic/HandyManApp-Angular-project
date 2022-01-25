@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Ponuda } from 'src/app/data/classes';
+import { NavNotification, Ponuda } from 'src/app/data/classes';
 import { Korisnici, MajstorPonude } from 'src/app/data/database/podaci';
 import { ConfirmationDialogComponent } from 'src/app/forms/confirmation-dialog/confirmation-dialog.component';
 
@@ -20,6 +20,10 @@ export class PregledPonudaComponent implements AfterViewInit {
   OglasID!:number;
   Data:any;
   Ponude!:Ponuda[];
+
+  pretraga: string = "";
+  rezultatPretrage: boolean = false;
+  filterPodaci: any[] = [];
   
   displayedColumnsPrihvaceni: string[] = ['Majstor','Grad', 'Datum', 'Opis', 'BrojTelefona','Akcije'];
   dsPonude:any;
@@ -37,7 +41,8 @@ export class PregledPonudaComponent implements AfterViewInit {
   UcitajPodatke(){
     this.Podaci=[];
 
-    this.Ponude=MajstorPonude.filter(x=>x.OglasID==this.OglasID);
+
+    this.Ponude=MajstorPonude.filter(x=>x.OglasID==this.OglasID).reverse();
 
     for (const iterator of this.Ponude) {
       var majstor=Korisnici.filter(x=>x.ID==iterator.MajstorID)[0];
@@ -49,19 +54,36 @@ export class PregledPonudaComponent implements AfterViewInit {
         Grad:majstor.Grad,
         BrojTelefona:majstor.BrojTelefona
       };
-
       this.Podaci.push(obj);
+    }    
+
+    if (this.pretraga == "") {
+      this.dsPonude=new MatTableDataSource<any>(this.Podaci);
+      return;
     }
-    
-    this.dsPonude=new MatTableDataSource<any>(this.Podaci);
+
+    var niz = this.Podaci.filter((x: any) => x.Majstor.includes(this.pretraga)
+    || x.Datum.includes(this.pretraga) || x.Opis.includes(this.pretraga)
+    || x.Grad.includes(this.pretraga) || x.BrojTelefona.includes(this.pretraga));
+    this.dsPonude=new MatTableDataSource<any>(niz);
+
+
   }
+
+  keyDownFunction(event: any) {
+    if (event.keyCode === 13) {
+      this.UcitajPodatke();
+    }
+  }
+
+
 
   ngAfterViewInit() {
     this.dsPonude.paginator=this.pagPrihvaceniAngazmani;
   }
 
   ngOnInit(){
-    this.pagPrihvaceniAngazmani._intl.itemsPerPageLabel="Pregled angažmana po stranici: ";
+    this.pagPrihvaceniAngazmani._intl.itemsPerPageLabel="Pregled ponuda po stranici: ";
     this.pagPrihvaceniAngazmani._intl.nextPageLabel=="Sljedeća stranica";
     this.pagPrihvaceniAngazmani._intl.firstPageLabel ="Vrati se na prvu stranicu";
     this.pagPrihvaceniAngazmani._intl.lastPageLabel="Idi na zadnju stranicu";
@@ -93,7 +115,9 @@ export class PregledPonudaComponent implements AfterViewInit {
 
     if (await this.openDialog('Pitanje','Jeste li sigurni da želite odbiti ovu ponudu?')) {
         this.toastr.success("Uspješno ste odbili ponudu za Vaš oglas.");
-        MajstorPonude.splice(id, 1);
+        MajstorPonude.splice(id-1, 1);
+        NavNotification.AzraSmajicOdbilaPonudu=true;
+        NavNotification.Hidden=false;
         this.UcitajPodatke();
     }
   }

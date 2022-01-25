@@ -32,16 +32,16 @@ export class LoginComponent implements OnInit {
     var Exist=Korisnici.find(x=>x.Username==LoginUser.Username&&x.Password==LoginUser.Password);
     console.log(Exist)
     if(Exist!=null){
-      var imaPonude=MajstorPonude.filter(x=>x.PotraziteljID==Exist?.ID);
-      if(imaPonude.length>0)
-        this.toastr.success("Dobili ste novu ponudu za Vaš oglas.");
+      // var imaPonude=MajstorPonude.filter(x=>x.PotraziteljID==Exist?.ID);
+      // if(imaPonude.length>0)
+      //   this.toastr.success("Dobili ste novu ponudu za Vaš oglas.");
       this.toastr.success("Uspješno ste se prijavili.\nDobro došli "+Exist.Ime+".");
 
       InfoService.LogiraniKorisnik=Exist;
       this.router.navigateByUrl("");
     }
     else{
-      this.toastr.error("Vaši podaci nisu validni! Pokušajte ponovo.", "Greška");
+      this.toastr.error("Korisničko ime ili lozinka nisu tačni! Pokušajte ponovo.", "Greška");
       document.getElementById("password")?.focus();
     }
   }
