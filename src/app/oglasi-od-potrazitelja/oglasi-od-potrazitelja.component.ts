@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,19 +18,89 @@ export class OglasiOdPotraziteljaComponent implements OnInit {
   oglasi: PotraziteljOglas[] = [];
   oglasiCijeli: any = [];
   pageOfItems: any;
+  @ViewChild('dugme1') dugme1: any;
+  @ViewChild('dugme2') dugme2: any;
+  @ViewChild('dugme3') dugme3: any;
+  @ViewChild('dugme4') dugme4: any;
+  @ViewChild('dugme5') dugme5: any;
+  @ViewChild('elementRef') elementRef: any;
   constructor(public router: Router, private toastr: ToastrService, private dialog: MatDialog) {
     this.oglasi = PotraziteljOglasi;
     this.oglasiCijeli = this.oglasi;
   }
   ngOnInit(): void { }
-  ngAfterViewInit() { }
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.focus();
+    this.dugme1.nativeElement.style.background="#000066";
+  }
+
 
   onChangePage(pageOfItems: any) {
     // update current page of items
     this.pageOfItems = pageOfItems;
   }
 
+  ClickElektrika(){
 
+    this.dugme2.nativeElement.style.background="#000066";
+    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.oglasi=this.oglasiCijeli;
+
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Elektrika");
+    this.oglasi=niz;
+
+  }
+  ClickSve(){
+
+    this.dugme1.nativeElement.style.background="#000066";
+    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.oglasi=this.oglasiCijeli;
+
+  }
+  ClickKeramika(){
+
+    this.dugme3.nativeElement.style.background="#000066";
+    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.oglasi=this.oglasiCijeli;
+
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Keramika");
+    this.oglasi=niz;
+  }
+  ClickCiscenje(){
+
+    this.dugme4.nativeElement.style.background="#000066";
+    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.oglasi=this.oglasiCijeli;
+
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Čiščenje");
+    this.oglasi=niz;
+
+  }
+  ClickCijevi(){
+
+    this.dugme5.nativeElement.style.background="#000066";
+    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.oglasi=this.oglasiCijeli;
+
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Cijevne instalacije");
+    this.oglasi=niz;
+
+  }
   Detalji(id: number) {
     this.dialog.open(DetaljiOglasaComponent, {
       width: "700px",

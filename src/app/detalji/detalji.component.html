@@ -10,7 +10,7 @@
         <mat-card-title style="text-align: center; font-size: xx-large; color: rgba(110, 110, 110, 0.473);">Detalji o oglasu</mat-card-title>
     </div>
     <div class="oglas">
-        <mat-card class="example-card">
+        <mat-card class="example-card" >
             <mat-card-title-group>
                 <mat-card-title style="font-size: large;position: relative;left:100%;font-weight: bold;">{{oglas.Naziv}}</mat-card-title>
                 <mat-card-subtitle style=" color: rgba(134,25,25,0.73);position: relative;left:100%;font-family: 'Mochiy Pop P One', sans-serif">
@@ -26,21 +26,31 @@
 
             </mat-card-title-group>
             <mat-card-content>
-                <form [formGroup]="form" style="position: relative;margin-right: 60%">
+                <form [formGroup]="form" style="position: relative;margin-right: 60%" *ngIf="GetUser()"  >
                     <ngx-star-rating formControlName="rating" [id]="'rating'" style="display: inline;" (change)="ChaneRating()"></ngx-star-rating>
                     <div style="position: relative;top: 21.5px;left: 25%;color: #d39628;font-size:20px;font-weight: bold">{{oglas.Ocjena| number: '1.1-1'}} |</div>
 
                 </form>
-                <p (click)="OpenComment()" style=" position: relative;left: 40%;color: #8955f5;font-size:20px;font-weight: bold;bottom: 10px;width: 10%">|
+              <div style="position: relative;left: 10.5%" *ngIf="!GetUser()" >
+
+                <mat-icon style="position: relative;color: #d39628"> star</mat-icon>
+                <div style="display: inline-block;position: relative;color: #d39628;bottom: 5px ;font-size:20px;font-weight: bold">{{oglas.Ocjena| number: '1.1-1'}}</div>
+
+              </div>
+                <p (click)="OpenComment()" style=" position: relative;left: 40%;color: #8955f5;font-size:20px;font-weight: bold;bottom: 10px;width: 10%" *ngIf="GetUser()">|
                     <mat-icon style="position: relative;top: 10px;cursor: pointer"> comment</mat-icon>
                 </p>
                 <button type="button" class="btn btn-success btn-lg" style=" width: 300px;height: 70px; position: relative;left: 68%;bottom: 70px;box-shadow: -1px 5px 7px 3px rgba(15,5,6,0.63);
 -webkit-box-shadow: -1px 5px 7px 3px rgba(15,5,6,0.63);
--moz-box-shadow: -1px 5px 7px 3px rgba(15,5,6,0.63);" (click)="Routeangazman()">Dogovori angažman</button>
+-moz-box-shadow: -1px 5px 7px 3px rgba(15,5,6,0.63);" (click)="Routeangazman()" *ngIf="GetUser()" >Dogovori angažman</button>
+                <button type="button" class="btn btn-success btn-lg" style=" width: 300px;height: 70px; position: relative;left: 68%;bottom: 40px;box-shadow: -1px 5px 7px 3px rgba(15,5,6,0.63);
+-webkit-box-shadow: -1px 5px 7px 3px rgba(15,5,6,0.63);
+-moz-box-shadow: -1px 5px 7px 3px rgba(15,5,6,0.63);
+background-color: rgba(47,79,79,0.43); border: 1px solid rgba(47,79,79,0.55); color: rgba(255,255,255,0.54) " (click)="Routeangazman()" *ngIf="!GetUser()">Dogovori angažman</button>
             </mat-card-content>
-        </mat-card>
+        </mat-card >
 
-        <mat-card class="example-card" style="position: relative;top: 20%; overflow-y: scroll;">
+        <mat-card class="example-card" style="position: relative;top: 20%; overflow-y: scroll; background-color: rgba(103,163,253,0.2)">
             <mat-card-title-group>
                 <mat-card-title style="font-size: larger;position: relative;left:150%;font-weight: bold">Opširnije</mat-card-title>
 
@@ -61,7 +71,7 @@
 
             </mat-card-content>
         </mat-card>
-        <mat-card class="example-card" style="position: relative;top: 30%; ">
+        <mat-card class="example-card" style="position: relative;top: 30%; background-color: rgba(248,89,175,0.13);height: auto;margin-bottom: 50px">
             <mat-card-title-group>
                 <mat-card-title style="font-size: larger;position: relative;left:150%;font-weight: bold;">Komentari</mat-card-title>
             </mat-card-title-group>
@@ -106,7 +116,7 @@
 
                     </div>
                 </div>
-                <pagination-controls previousLabel="Prethodni" nextLabel="Sljedeći" (pageChange)="p = $event" class="paging" style="position: relative; left: 20%;top: 20px"></pagination-controls>
+                <pagination-controls previousLabel="Prethodni" nextLabel="Sljedeći" (pageChange)="p = $event" class="paging" style="position: relative; left: 20%;top: 20px;background-color: #7e0cf5"></pagination-controls>
             </mat-card-content>
 
         </mat-card>

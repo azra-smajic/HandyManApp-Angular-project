@@ -1,3 +1,7 @@
+.ng-star-inserted .current{
+  background-color: #8955f5 !important;
+}
+
 .sve {
     width: 100%;
     height: 100%;

@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   @ViewChild('nadjiPosao') dugme7: any;
   @ViewChild('addPonuda') dugme8: any;
   @ViewChild('MyPonuda') dugme9: any;
+
   constructor(public dialog: MatDialog, private router: Router) {  }
   openAbout() {
     const dialogRef = this.dialog.open(ONamaComponent, {
@@ -267,7 +268,7 @@ export class AppComponent implements OnInit {
   TajibVikaloPoslaoPonudu = () => NavNotification.TajibVikaloPoslaoPonudu;
 
 
-  
+
 
 
   ngOnInit(): void {

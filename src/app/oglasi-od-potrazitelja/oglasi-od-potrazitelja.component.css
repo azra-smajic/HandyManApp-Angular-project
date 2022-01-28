@@ -21,12 +21,44 @@
     position: relative;
     width: 25%;
     height: 90%;
-    font-family: 'Mochiy Pop P One', sans-serif;
+
+}
+#icon1 {
+  position: relative;
+  top: 2px;
+  left: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../home/tile.png");
+  background-size: cover;
+}
+
+#icon2 {
+  position: relative;
+  top: 2px;
+  left: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../home/clean.png");
+  background-size: cover;
+}
+
+#icon3 {
+  position: relative;
+  top: 2px;
+  left: 25%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../home/pipe.png");
+  background-size: cover;
 }
 
 .example-card {
     width: 27%;
-    height: 40%;
+    height:60%;
     position: relative;
     left: 5%;
     top: 5%;
@@ -43,8 +75,8 @@
 
 .oglasi {
     position: relative;
-    width: 70%;
-    height: 77%;
+    width: 80%;
+    height: 60%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;

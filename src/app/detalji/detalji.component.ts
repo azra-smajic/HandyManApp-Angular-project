@@ -26,7 +26,7 @@ export class DetaljiComponent implements OnInit {
   form = this.fb.group({
     rating: ['', Validators.required]
   })
-
+  GetUser = () => InfoService?.LogiraniKorisnik;
   ngOnInit(): void { }
 
   Routeangazman() {
