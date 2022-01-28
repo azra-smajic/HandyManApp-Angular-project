@@ -70,4 +70,10 @@ export class SlanjePonudeComponent {
       this.onNoClick();
     }
   }
+
+  async Odustani(){
+    if (await this.openDialog('Pitanje','Jeste li sigurni da želite poslati ovu ponudu?')) {
+      this.onNoClick();
+    }
+  }
 }

@@ -37,7 +37,7 @@ export const Kantoni = [
       ]
     },
     {
-      id: "2", naziv: "Tuzlanski",
+      id: "2", naziv: "Tuzlanski kanton",
       gradovi: [
         { id: "1", naziv: "Tuzla" },
         { id: "2", naziv: "Srebrenik" },
@@ -45,7 +45,7 @@ export const Kantoni = [
       ]
     },
     {
-      id: "3", naziv: "Hercegovačko neretvanski",
+      id: "3", naziv: "Hercegovačko-neretvanski kanton",
       gradovi: [
         { id: "1", naziv: "Mostar" },
         { id: "2", naziv: "Konjic" },
@@ -160,7 +160,7 @@ Pomoc.push({
       Slika:"http://localhost:4200/assets/masina.jpg",
       Oblast:"Elektrika",
       BrojTelefona:"061/000-000",
-      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+      Opis:"Imam masinu za ves Whirpool, koja se pokvarila. Treba mi hitno to popraviti.",
       PotraziteljID:3,
       Potrazitelj:"Azra Smajić",
       Notification:false
@@ -174,7 +174,7 @@ Pomoc.push({
       Slika:"http://localhost:4200/assets/Sudje.jpg",
       Oblast:"Elektrika",
       BrojTelefona:"061/000-000",
-      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+      Opis:"Naime, dogadja mi se sad vec neko vrijeme da mi se onaj pretinac gdje ide tableta ne otvori i kad je mašina gotova vidim da je tableta jos uvijek unutra. Imam Whirpoll perilicu a pretinac se nalazi u vratima. Provjerila sam ladice i one su ok, sjednu na svoje mjesto kako treba i nikad nista ne viri iz njih sto bi moglo pritisnuti taj poklopac..",
       PotraziteljID:3,
       Potrazitelj:"Azra Smajić",
       Notification:false
@@ -188,7 +188,7 @@ Pomoc.push({
       Slika:"http://localhost:4200/assets/Elgrijalica.jpg",
       Oblast:"Elektrika",
       BrojTelefona:"061/000-000",
-      Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+      Opis:"Sinoć sam pokvario termostat na grijalici, i ostao je zaglavljen na 20 stepeni, plaćam duplo samo da se popravi",
       PotraziteljID:2,
       Potrazitelj:"Azra Smajić",
       Notification:false
@@ -197,18 +197,18 @@ Pomoc.push({
 
   export const Komenari:any=[];
 MojiOglasi.push({Naziv:"Tajib Vikalo ",
-  Grad:"Tuzla",
-  Podrucje:"Tuzlanski",
+  Grad:"Srebrenik",
+  Podrucje:"Tuzlanski kanton",
   Slika:"http://localhost:4200/assets/logo.jpg",
   Oblast:"Elektrika",
   BrojTelefona:"061/000-00",
-  Opis:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ipsum molestie, tincidunt magna non, pharetra purus. Curabitur at tempus lacus, in ultricies eros. Cras ultricies congue lacinia. Curabitur sodales posuere justo, ac interdum leo vestibulum quis. Nullam cursus, arcu quis porttitor auctor, sem diam venenatis velit, et convallis ante diam nec tortor. Mauris efficitur mollis dictum. In hac habitasse platea dictumst. Nunc lacinia sem quis posuere consectetur.  ",
+  Opis:"Vršim popravku svih električnih uređaja po veoma jeftinoj cijeni. Dolazim na teren i rješavam stvar na licu mjesta.",
   Ocjena:4.5})
 
 
 MojePonude.push({Naziv:"Popravka mašine za veš",
   Grad:"Mostar",
-  Podrucje:"Hercegovačko neretvanski",
+  Podrucje:"Hercegovačko-neretvanski kanton",
   Slika:"http://localhost:4200/assets/masina.jpg",
   Oblast:"Elektrika",
   BrojTelefona:"061/000-00",
@@ -217,7 +217,7 @@ MojePonude.push({Naziv:"Popravka mašine za veš",
 
   MojePonude.push({Naziv:"Popravka mašine za suđe",
   Grad:"Mostar",
-  Podrucje:"Hercegovačko neretvanski",
+  Podrucje:"Hercegovačko-neretvanski kanton",
   Slika:"http://localhost:4200/assets/Sudje.jpg",
   Oblast:"Elektrika",
   BrojTelefona:"061/000-00",
@@ -226,7 +226,7 @@ MojePonude.push({Naziv:"Popravka mašine za veš",
 
   MojePonude.push({Naziv:"Popravka el. grijalice",
   Grad:"Mostar",
-  Podrucje:"Hercegovačko neretvanski",
+  Podrucje:"Hercegovačko-neretvanski kanton",
   Slika:"http://localhost:4200/assets/Elgrijalica.jpg",
   Oblast:"Elektrika",
   BrojTelefona:"061/000-00",
@@ -476,7 +476,7 @@ Oglasi.push({Naziv:"Tarik Bojkić",
       Opis:"Izljevanje ploče",
       Prihvacen:false,
       Obrisan:false,
-      SlikaURL:"../../../assets/Masina.png",
+      SlikaURL:"../../../assets/Elgrijalica.jpg",
       ImePotrazitelja:"",
       KontaktTelefon:"",
       Adresa:"Sladna Srebrenik"
@@ -486,12 +486,12 @@ Oglasi.push({Naziv:"Tarik Bojkić",
       Naziv:"Popravka pegle",
       Datum:"04/02/2022",
       Vrijeme:"18:00",
-      Opis:"Mašine ne radi centrifugu",
+      Opis:"Začepile se rupice valjda od kamenca",
       Prihvacen:true,
       Obrisan:false,
-      SlikaURL:"../../../assets/Masina.png",
-      ImePotrazitelja:"",
-      KontaktTelefon:"",
+      SlikaURL:"../../../assets/Pegla.jpg",
+      ImePotrazitelja:"Amir Karaga",
+      KontaktTelefon:"062/964-199",
       Adresa:"Gorani Konjic"
     },
     {

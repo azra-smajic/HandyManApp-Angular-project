@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Korisnik } from '../classes';
 
 @Injectable({
   providedIn: 'root'

@@ -20,11 +20,11 @@
     <mat-card-content>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Napišite ponudu</mat-label>
-            <textarea rows="15" [(ngModel)]="Opis" matInput></textarea>
+            <textarea rows="15" placeholder="Na primjer: Pozdrav, mislim da bih Vam mogao pomoći u vezi Vašeg kvara ..." [(ngModel)]="Opis" matInput></textarea>
         </mat-form-field>
     </mat-card-content>
     <mat-card-actions align="end">
-        <button style="margin-right: 5px;" class="btn btn-outline-danger" (click)="onNoClick()">Odustani</button>
+        <button style="margin-right: 5px;" class="btn btn-outline-danger" (click)="Odustani()">Odustani</button>
         <button style="margin-right: 5px;" class="btn btn-outline-success" (click)="posaljiPonudu()">Pošalji</button>
     </mat-card-actions>
 </mat-card>

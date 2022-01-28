@@ -3,7 +3,8 @@ import {FileUploadControl, FileUploadValidators} from "@iplab/ngx-file-upload";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
-import {Angazmani, Kantoni, MojePonude, MojiOglasi, Oblasti, Oglasi, Ponude} from "../data/database/podaci";
+import {Angazmani, Kantoni, MojePonude, MojiOglasi, Oblasti, Oglasi, Ponude, PotraziteljOglasi} from "../data/database/podaci";
+import { InfoService } from '../data/logger-info/info.service';
 
 @Component({
   selector: 'app-add-ponuda',
@@ -34,6 +35,8 @@ export class AddPonudaComponent implements OnInit {
   oblast:any;
   opis:any;
   slika:any;
+  adresa:any;
+  naziv:any;
   public readonly control = new FileUploadControl(
     { listVisible: true, accept: ['image/*'], discardInvalid: true, multiple: false },
     [FileUploadValidators.accept(['image/*']), FileUploadValidators.filesLimit(1)]
@@ -55,18 +58,24 @@ export class AddPonudaComponent implements OnInit {
 
   }
   UcitajPodatke(oglas:any){
+    console.log(oglas)
     this.firstFormGroup.controls['opis1'].setValue(oglas.oglas.Opis);
-    this.secondFormGroup.controls['ime'].setValue(oglas.oglas.Naziv);
+    this.firstFormGroup.controls['naziv'].setValue(oglas.oglas.Naziv);
+    this.secondFormGroup.controls['ime'].setValue(oglas.oglas.Potrazitelj);
     this.secondFormGroup.controls['telefon'].setValue(oglas.oglas.BrojTelefona);
     this.secondFormGroup.controls['KantonID'].setValue(oglas.oglas.Podrucje);
     this.secondFormGroup.controls['GradID'].setValue(oglas.oglas.Grad);
     this.secondFormGroup.controls['OblastID'].setValue(oglas.oglas.Oblast);
+    this.secondFormGroup.controls['adresa'].setValue(oglas.oglas.Adresa);
+    this.adresa=this.secondFormGroup.value.adresa
+    this.naziv=this.firstFormGroup.value.naziv;
   }
   ngOnInit() {
 
 
     this.firstFormGroup = this._formBuilder.group({
       opis1: [''],
+      naziv:[''],
     });
     this.secondFormGroup = this._formBuilder.group({
       ime: ['',Validators.required],
@@ -74,6 +83,7 @@ export class AddPonudaComponent implements OnInit {
       KantonID: [, Validators.required],
       GradID: ['', Validators.required],
       OblastID: ['', Validators.required],
+      adresa:['', Validators.required],
 
     });
     const grad = this.secondFormGroup.get('GradID');
@@ -98,7 +108,7 @@ export class AddPonudaComponent implements OnInit {
     this.toastr.success("Uspješno ste dodali sačuvali promjene","Čestitamo");
 
     Ponude.splice(this.oglas.indeks,1);
-    MojePonude.splice(this.oglas.indeks,1);
+    PotraziteljOglasi.splice(this.oglas.indeks,1);
     Ponude.push({Naziv:this.ime,
       Grad:this.grad,
       Podrucje:this.regija,
@@ -107,15 +117,26 @@ export class AddPonudaComponent implements OnInit {
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
-    MojePonude.push({Naziv:this.ime,
-      Grad:this.grad,
-      Podrucje:this.regija,
-      Slika:this.uploadedFiles,
-      Oblast:this.oblast,
-      BrojTelefona:this.telefon,
-      Opis:this.opis,
-      Ocjena:0})
+
+      PotraziteljOglasi.push({
+        ID:PotraziteljOglasi.length+1,
+        Naziv:this.naziv,
+        Notification:false,
+        PotraziteljID: InfoService.LogiraniKorisnik.ID,
+        Adresa:this.adresa,
+        Potrazitelj:this.ime,
+        Grad:this.grad,
+        Podrucje:this.regija,
+        Slika:this.uploadedFiles,
+        Oblast:this.oblast,
+        BrojTelefona:this.telefon,
+        Opis:this.opis,
+      })
     this.router.navigateByUrl('/mojePonude');
+  }
+
+  GetUser(){
+    return "Primjer: Marko Azemović"//InfoService.LogiraniKorisnik.Ime+" "+InfoService.LogiraniKorisnik.Prezime;
   }
   Poruka1(){
     this.toastr.success("Uspješno ste dodali kvar. Očekujte ponude majstora.","Čestitamo");
@@ -127,19 +148,27 @@ export class AddPonudaComponent implements OnInit {
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
-    MojePonude.push({Naziv:this.ime,
+
+    PotraziteljOglasi.push({
+      ID:PotraziteljOglasi.length+1,
+      Naziv:this.naziv,
+      Notification:false,
+      PotraziteljID: InfoService.LogiraniKorisnik.ID,
+      Adresa:this.adresa,
+      Potrazitelj:this.ime,
       Grad:this.grad,
       Podrucje:this.regija,
       Slika:this.uploadedFiles,
       Oblast:this.oblast,
       BrojTelefona:this.telefon,
       Opis:this.opis,
-      Ocjena:0})
+    })
     this.router.navigateByUrl('');
   }
 
   Poruka2(){
     this.opis=this.firstFormGroup.value.opis1;
+    this.naziv=this.firstFormGroup.value.naziv;
   }
   Poruka(){
     if (this.secondFormGroup.value.ime=='' || this.secondFormGroup.value.KantonID=='' ||this.secondFormGroup.value.GradID=='' ||this.secondFormGroup.value.telefon==''  )
@@ -153,7 +182,7 @@ export class AddPonudaComponent implements OnInit {
       this.regija=this.secondFormGroup.value.KantonID;
       this.grad=this.secondFormGroup.value.GradID;
       this.oblast=this.secondFormGroup.value.OblastID;
-
+      this.adresa=this.secondFormGroup.value.adresa;
     }
   }
 

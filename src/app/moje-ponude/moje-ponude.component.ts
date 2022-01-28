@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {Router} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-import {  MajstorPonude, PotraziteljOglasi} from "../data/database/podaci";
+import {  MajstorPonude, MojePonude, PotraziteljOglasi} from "../data/database/podaci";
 import { ConfirmationDialogComponent } from '../forms/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
@@ -30,7 +30,7 @@ export class MojePonudeComponent implements OnInit {
   async   Obrisi(indeks:any) {
 
     if (await this.openDialog('Upozorenje','Jeste li sigurni da želite obrisati svoj kvar?')) {
-        PotraziteljOglasi.splice(indeks,1);
+      PotraziteljOglasi.splice(indeks,1);
     }
   }
   
@@ -56,14 +56,12 @@ export class MojePonudeComponent implements OnInit {
   }
 
   PregledPonuda(id:number){
-    this.ogl =PotraziteljOglasi.find(x=>x.ID==id);
-    this.ogl.Notification=false;
-    console.log(PotraziteljOglasi.find(x=>x.ID==id))
     var ponude=MajstorPonude.filter(x=>x.OglasID==id);
     if(ponude.length==0){
-      this.toastr.error("Nemate ponuda za ovaj oglas.","Greška")
+      this.toastr.error("Nemate ponuda za ovaj kvar.","Greška")
       return;
     }
+    console.log(id)
     this.router.navigateByUrl("/pregled-ponuda", {state: {OglasID:id}});
   }
 }

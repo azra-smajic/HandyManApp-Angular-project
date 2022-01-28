@@ -6,6 +6,7 @@ import {Angazmani, Kantoni, MojiOglasi, Oblasti, Oglasi} from "../data/database/
 import {Router} from "@angular/router";
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogYesNoComponent } from '../forms/confirmation-dialog/confirmation-dialog-yes-no/confirmation-dialog-yes-no.component';
+import { InfoService } from '../data/logger-info/info.service';
 
 @Component({
   selector: 'app-oglas',
@@ -55,13 +56,19 @@ export class OglasComponent implements OnInit {
     this.angazmani= Angazmani;
 
   }
+
 UcitajPodatke(oglas:any){
+  console.log(oglas)
   this.firstFormGroup.controls['opis1'].setValue(oglas.oglas.Opis);
   this.secondFormGroup.controls['ime'].setValue(oglas.oglas.Naziv);
   this.secondFormGroup.controls['telefon'].setValue(oglas.oglas.BrojTelefona);
   this.secondFormGroup.controls['KantonID'].setValue(oglas.oglas.Podrucje);
   this.secondFormGroup.controls['GradID'].setValue(oglas.oglas.Grad);
   this.secondFormGroup.controls['OblastID'].setValue(oglas.oglas.Oblast);
+}
+
+GetUser(){
+  return "Primjer: Marko Azemović"//InfoService.LogiraniKorisnik.Ime+" "+InfoService.LogiraniKorisnik.Prezime;
 }
   ngOnInit() {
 
