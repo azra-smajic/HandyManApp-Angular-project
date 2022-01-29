@@ -43,10 +43,10 @@ export class OglasiOdPotraziteljaComponent implements OnInit {
   ClickElektrika(){
 
     this.dugme2.nativeElement.style.background="#000066";
-    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme1.nativeElement.style.background="deepskyblue";
+    this.dugme3.nativeElement.style.background="deepskyblue";
+    this.dugme4.nativeElement.style.background="deepskyblue";
+    this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
     var niz=this.oglasi.filter((x:any)=>x.Oblast=="Elektrika");
@@ -56,20 +56,20 @@ export class OglasiOdPotraziteljaComponent implements OnInit {
   ClickSve(){
 
     this.dugme1.nativeElement.style.background="#000066";
-    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme2.nativeElement.style.background="deepskyblue";
+    this.dugme3.nativeElement.style.background="deepskyblue";
+    this.dugme4.nativeElement.style.background="deepskyblue";
+    this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
   }
   ClickKeramika(){
 
     this.dugme3.nativeElement.style.background="#000066";
-    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme1.nativeElement.style.background="deepskyblue";
+    this.dugme2.nativeElement.style.background="deepskyblue";
+    this.dugme4.nativeElement.style.background="deepskyblue";
+    this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
     var niz=this.oglasi.filter((x:any)=>x.Oblast=="Keramika");
@@ -78,23 +78,23 @@ export class OglasiOdPotraziteljaComponent implements OnInit {
   ClickCiscenje(){
 
     this.dugme4.nativeElement.style.background="#000066";
-    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme5.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme1.nativeElement.style.background="deepskyblue";
+    this.dugme3.nativeElement.style.background="deepskyblue";
+    this.dugme2.nativeElement.style.background="deepskyblue";
+    this.dugme5.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
-    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Čiščenje");
+    var niz=this.oglasi.filter((x:any)=>x.Oblast=="Čišćenje");
     this.oglasi=niz;
 
   }
   ClickCijevi(){
 
     this.dugme5.nativeElement.style.background="#000066";
-    this.dugme1.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme3.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme4.nativeElement.style.background="rgba(21,57,194,0.85)";
-    this.dugme2.nativeElement.style.background="rgba(21,57,194,0.85)";
+    this.dugme1.nativeElement.style.background="deepskyblue";
+    this.dugme3.nativeElement.style.background="deepskyblue";
+    this.dugme4.nativeElement.style.background="deepskyblue";
+    this.dugme2.nativeElement.style.background="deepskyblue";
     this.oglasi=this.oglasiCijeli;
 
     var niz=this.oglasi.filter((x:any)=>x.Oblast=="Cijevne instalacije");

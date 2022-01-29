@@ -19,9 +19,9 @@
         </mat-card-title-group>
         <mat-card-content>
             <!-- <mat-icon *ngIf="oglas.Notification" class="notification" color="warn">notifications</mat-icon> -->
-            <button matBadge="1" [matBadgeHidden]="!oglas.Notification" matBadgeColor="warn" type="button" class="btn btn-outline-info" (click)="PregledPonuda(oglas.ID)" style="width: 70%;position: relative;left: 15%; top:90px">Ponude</button>
-            <button (click)="UrediOglas(i,oglas)" type="button" class="btn btn-outline-success" style="width: 70%;position: relative;left: 15%; top:95px">Uredi</button>
-            <button (click)="Obrisi(i)" type="button" class="btn btn-outline-danger" style="width: 70%;position: relative;left: 15%; top:100px">Obriši</button>
+            <button matBadge="1" [matBadgeHidden]="!oglas.Notification" matBadgeColor="warn" type="button" class="btn btn-outline-info" (click)="PregledPonuda(oglas.ID)" style="width: 70%;position: relative;left: 15%; top:15px;">Ponude</button>
+            <button (click)="UrediOglas(i,oglas)" type="button" class="btn btn-outline-success" style="width: 70%;position: relative;left: 15%; top:20px">Uredi</button>
+            <button (click)="Obrisi(i)" type="button" class="btn btn-outline-danger" style="width: 70%;position: relative;left: 15%; top:25px">Obriši</button>
 
         </mat-card-content>
     </mat-card>

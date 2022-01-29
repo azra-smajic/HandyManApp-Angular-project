@@ -72,7 +72,7 @@ export class SlanjePonudeComponent {
   }
 
   async Odustani(){
-    if (await this.openDialog('Pitanje','Jeste li sigurni da želite poslati ovu ponudu?')) {
+    if (await this.openDialog('Pitanje','Jeste li sigurni da želite odustati od slanja ponude?')) {
       this.onNoClick();
     }
   }

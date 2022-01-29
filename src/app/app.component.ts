@@ -12,18 +12,19 @@ import { ONamaComponent } from "./o-nama/o-nama.component";
 })
 export class AppComponent implements OnInit {
   title = 'HandyManApp';
-  @ViewChild('pocetna') dugme0: any;
-  @ViewChild('pomoc') dugme1: any;
-  @ViewChild('about') dugme2: any;
-  @ViewChild('pretraga') dugme3: any;
-  @ViewChild('oglasi') dugme4: any;
-  @ViewChild('evidencija') dugme5: any;
-  @ViewChild('mojiOglasi') dugme6: any;
-  @ViewChild('nadjiPosao') dugme7: any;
-  @ViewChild('addPonuda') dugme8: any;
-  @ViewChild('MyPonuda') dugme9: any;
+  @ViewChild('pocetna') btnPocetna: any;
+  @ViewChild('pomoc') btnPomoc: any;
+  @ViewChild('about') btnAbout: any;
+  //@ViewChild('pretraga') btnPretraga: any;
+  @ViewChild('oglasi') btnOglasi: any;
+  @ViewChild('evidencija') btnEvidencija: any;
+  @ViewChild('mojiOglasi') btnMojiOglasi: any;
+  //@ViewChild('nadjiPosao') btnNadjiPosao: any;
+  @ViewChild('addPonuda') btnAddKvar: any;
+  @ViewChild('MyPonuda') btnMojiKvarovi: any;
 
-  constructor(public dialog: MatDialog, private router: Router) {  }
+  constructor(public dialog: MatDialog, private router: Router) {
+  }
   openAbout() {
     const dialogRef = this.dialog.open(ONamaComponent, {
       height: "550px",
@@ -33,12 +34,15 @@ export class AppComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+    console.log(this.BtnArray)
   }
 
   GetUser = () => InfoService?.LogiraniKorisnik;
   GetUloga = () => InfoService?.LogiraniKorisnik?.Uloga;
 
 
+  BtnArray: Array<any> = new Array<any>();
+  BtnTriNav: Array<any> = new Array<any>();
   RouterNoviAngazmani() {
     this.router.navigateByUrl("/noviangazmani");
     NavNotification.AngazmaniNotification = false;
@@ -46,173 +50,79 @@ export class AppComponent implements OnInit {
 
   ngAfterViewInit() {
 
-    this.dugme3.nativeElement.style.color = "darkblue";
+    this.btnPocetna.nativeElement.style.backgroundColor = "#00000029";
+
+
   }
 
-  clickPretraga() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(123,123,123,0.41)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "darkblue";
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "white";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "white";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "white";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "white";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "white";
-    if (this.dugme9)
-      this.dugme9.nativeElement.style.color = "white";
+  UcitajBtns() {
+    this.BtnArray = [];
+    this.BtnTriNav = [];
+
+    this.BtnTriNav.push(this.btnAbout);
+    this.BtnTriNav.push(this.btnPocetna);
+    this.BtnTriNav.push(this.btnPomoc);
+
+    this.BtnArray.push(this.btnOglasi);
+    this.BtnArray.push(this.btnEvidencija);
+    this.BtnArray.push(this.btnMojiOglasi);
+    this.BtnArray.push(this.btnAddKvar);
+    this.BtnArray.push(this.btnMojiKvarovi);
   }
+
+  PromijeniBoje() {
+    this.BtnTriNav.forEach(x => {
+      x.nativeElement.style.backgroundColor = "rgb(0 0 0 / 0%)";
+    })
+
+    this.BtnArray.forEach(x => {
+      if (x != null) {
+        x.nativeElement.style.color = "white";
+      }
+    })
+  }
+
   clickOglas() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "darkblue";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "white";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "white";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "white";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "white";
+    this.UcitajBtns();
 
+    this.PromijeniBoje();
+
+    this.btnOglasi.nativeElement.style.color = "darkblue";
   }
   clickEvidencija() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "white";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "darkblue";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "white";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "white";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "white";
+    this.UcitajBtns();
+    this.PromijeniBoje();
+    this.btnEvidencija.nativeElement.style.color = "darkblue";
   }
   ClickPomoc() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(123,123,123,0.41)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "white";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "white";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "white";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "white";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "white";
+    this.UcitajBtns();
+    this.PromijeniBoje();
+    this.btnPomoc.nativeElement.style.backgroundColor = "#00000029";
+    this.btnPomoc.nativeElement.style.color = "darkblue";
   }
-  ClickHome() {
 
-  }
-  clickAbout() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
-    this.dugme4.nativeElement.style.color = "white";
-    this.dugme5.nativeElement.style.color = "white";
-    this.dugme6.nativeElement.style.color = "white";
-    this.dugme7.nativeElement.style.color = "white";
-    this.dugme8.nativeElement.style.color = "white";
-  }
   clickMojiOglasi() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "white";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "white";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "darkblue";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "white";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "white";
+    this.UcitajBtns();
+    this.PromijeniBoje();
+    this.btnMojiOglasi.nativeElement.style.color = "darkblue";
   }
   clickAddPonuda() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
+    this.UcitajBtns();
+    this.PromijeniBoje();
+    this.btnAddKvar.nativeElement.style.color = 'darkblue';
 
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "white";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "white";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "white";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "white";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "darkblue";
-      if (this.dugme9)
-      this.dugme9.nativeElement.style.color = "white";
-
-      this.router.navigateByUrl("objavi-kvar");
+    this.router.navigateByUrl("objavi-kvar");
 
   }
   clickMojePonude() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
+    this.UcitajBtns();
 
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "white";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "white";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "white";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "white";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "white";
-      if (this.dugme9)
-      this.dugme9.nativeElement.style.color = "darkblue";
+
+    this.PromijeniBoje();
+
+
+    this.btnMojiKvarovi.nativeElement.style.color = "darkblue";
     this.RouterLink();
-  }
-
-  clickNadjiPosao() {
-    this.dugme0.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme1.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme2.nativeElement.style.backgroundColor = "rgba(255,255,255,0)";
-    this.dugme3.nativeElement.style.color = "white";
-    if (this.dugme4)
-      this.dugme4.nativeElement.style.color = "white";
-    if (this.dugme5)
-      this.dugme5.nativeElement.style.color = "white";
-    if (this.dugme6)
-      this.dugme6.nativeElement.style.color = "white";
-    if (this.dugme7)
-      this.dugme7.nativeElement.style.color = "darkblue";
-    if (this.dugme8)
-      this.dugme8.nativeElement.style.color = "white";
-  }
-  Pocetna() {
-
-
-    this.clickPretraga();
-
-  }
-  ClickDodajPonudu() {
-
   }
 
   RouterLink() {
@@ -268,6 +178,21 @@ export class AppComponent implements OnInit {
   TajibVikaloPoslaoPonudu = () => NavNotification.TajibVikaloPoslaoPonudu;
 
 
+
+  Route() {
+    if (this.GetUloga() == "Majstor")
+      this.router.navigateByUrl("majstor-oglasi")
+    else
+      this.router.navigateByUrl("")
+
+      this.UcitajBtns();
+
+      this.PromijeniBoje();
+  
+      this.btnPocetna.nativeElement.style.backgroundColor = "#00000029";
+
+      console.log(this.btnPocetna.nativeElement)
+  }
 
 
 

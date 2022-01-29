@@ -67,6 +67,10 @@ export class PregledPonudaComponent implements AfterViewInit {
     || x.Grad.includes(this.pretraga) || x.BrojTelefona.includes(this.pretraga));
     this.dsPonude=new MatTableDataSource<any>(niz);
 
+    if(niz.length==0)
+    this.toastr.error("Nije pronađen rezultat pretrage.", "Greška")
+
+
 
   }
 

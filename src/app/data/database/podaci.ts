@@ -25,6 +25,18 @@ export const Korisnici: Korisnik[] = [
         Kanton: "Hercegovačko neretvanski",
         Grad: "Konjic"
     },
+    {
+      ID: 3,
+      Ime: "Amir",
+      Prezime: "Karaga",
+      Spol: "Muški",
+      Username: "samir",
+      Password: "samir",
+      BrojTelefona: "+38761741598",
+      Uloga: "Potražitelj usluga",
+      Kanton: "Zeničko-dobojski kanton",
+      Grad: "Tešanj"
+  },
 ];
 
 export const Kantoni = [
@@ -33,7 +45,12 @@ export const Kantoni = [
       gradovi: [
         { id: "1", naziv: "Stari Grad" },
         { id: "2", naziv: "Hadžići" },
-        { id: "3", naziv: "Vogošća" },
+        { id: "3", naziv: "Novi Grad" },
+        { id: "4", naziv: "Ilijaš" },
+        { id: "5", naziv: "Ilidža" },
+        { id: "6", naziv: "Trnovo" },
+        { id: "7", naziv: "Općina Centar" },
+        { id: "8", naziv: "Novo Sarajevo" }
       ]
     },
     {
@@ -42,6 +59,11 @@ export const Kantoni = [
         { id: "1", naziv: "Tuzla" },
         { id: "2", naziv: "Srebrenik" },
         { id: "3", naziv: "Gračanica" },
+        { id: "4", naziv: "Gradačac" },
+        { id: "5", naziv: "Lukavac" },
+        { id: "6", naziv: "Kladanj" },
+        { id: "7", naziv: "Sapna" },
+        { id: "8", naziv: "Čelić" },
       ]
     },
     {
@@ -50,9 +72,27 @@ export const Kantoni = [
         { id: "1", naziv: "Mostar" },
         { id: "2", naziv: "Konjic" },
         { id: "3", naziv: "Stolac" },
+        { id: "4", naziv: "Jablanica" },
+        { id: "5", naziv: "Prozor" },
+        { id: "6", naziv: "Ljubuški" },
+        { id: "7", naziv: "Trebinje" },
+        { id: "8", naziv: "Počitelj" },
       ]
     },
     { id: "4", naziv: "Brčko Distrikt" },
+    {
+      id: "5", naziv: "Zeničko-dobojski kanton",
+      gradovi: [
+        { id: "1", naziv: "Zenica" },
+        { id: "2", naziv: "Žepče" },
+        { id: "3", naziv: "Zavidovići" },
+        { id: "4", naziv: "Kakanj" },
+        { id: "5", naziv: "Visoko" },
+        { id: "6", naziv: "Tešanj" },
+        { id: "7", naziv: "Maglaj" },
+        { id: "8", naziv: "Vareš" },
+      ]
+    },
   ];
 
   export const Oglasi:any=[];
@@ -189,6 +229,62 @@ Pomoc.push({
       Oblast:"Elektrika",
       BrojTelefona:"061/000-000",
       Opis:"Sinoć sam pokvario termostat na grijalici, i ostao je zaglavljen na 20 stepeni, plaćam duplo samo da se popravi",
+      PotraziteljID:2,
+      Potrazitelj:"Azra Smajić",
+      Notification:false
+    },
+    {
+      ID:4,
+      Naziv:"Rekonstrukcija keramičkih pločica",
+      Grad:"Zenica",
+      Adresa:"Ulica Maršala Tita 50",
+      Podrucje:"Hercegovačko-neretvanski kanton",
+      Slika:"http://localhost:4200/assets/Plocice.jpg",
+      Oblast:"Keramika",
+      BrojTelefona:"061/159-741",
+      Opis:"Potrebna mi je zamjena pločica u kuhinji. Pločice su dimenzije 40x30 cm-",
+      PotraziteljID:2,
+      Potrazitelj:"Amir Karaga",
+      Notification:false
+    },
+    {
+      ID:5,
+      Naziv:"Generalno čišćenje spavaće sobe",
+      Grad:"Mostar",
+      Adresa:"Zalik",
+      Podrucje:"Hercegovačko-neretvanski kanton",
+      Slika:"http://localhost:4200/assets/Ciscenje.jpg",
+      Oblast:"Čišćenje",
+      BrojTelefona:"061/000-000",
+      Opis:"Tražim nekog da mi počisti spavaću sobu. Potrebno je izvršiti generalno čišćenje",
+      PotraziteljID:2,
+      Potrazitelj:"Azra Smajić",
+      Notification:false
+    },
+    {
+      ID:6,
+      Naziv:"Popravka cijevi za vodu",
+      Grad:"Tuzla",
+      Adresa:"Rudarska 20",
+      Podrucje:"Hercegovačko-neretvanski kanton",
+      Slika:"http://localhost:4200/assets/Cijevi.jpg",
+      Oblast:"Cijevne instalacije",
+      BrojTelefona:"061/000-000",
+      Opis:"Hitno mi neko treba zamijeniti cijev od tople vode u kuhinji. Evo perem mjesec dana suđe na hladnoj vodi.",
+      PotraziteljID:2,
+      Potrazitelj:"Azra Smajić",
+      Notification:false
+    },
+    {
+      ID:7,
+      Naziv:"Lijpljenje novih pločica",
+      Grad:"Tuzla",
+      Adresa:"Simin Han",
+      Podrucje:"Tuzlanski kanton",
+      Slika:"http://localhost:4200/assets/Kuhinja.jpeg",
+      Oblast:"Keramika",
+      BrojTelefona:"061/000-000",
+      Opis:"Potreban mi je majstora da polijepi kuhinju sa pločicama. Plaćam po satu.",
       PotraziteljID:2,
       Potrazitelj:"Azra Smajić",
       Notification:false

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Angazmani } from 'src/app/data/database/podaci';
 import { OglasDetaljiComponent } from '../../oglas-detalji/oglas-detalji.component';
 
@@ -21,7 +22,7 @@ export class AngazmaniComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator, { static: true }) pagPrihvaceniAngazmani!: MatPaginator;
 
-  constructor(private router:Router, public dialog: MatDialog) {}
+  constructor(private router:Router, public dialog: MatDialog, private toastr:ToastrService) {}
 
   ngAfterViewInit() {
     this.dsPrihvaceniANgazmani.paginator=this.pagPrihvaceniAngazmani;
@@ -38,7 +39,7 @@ export class AngazmaniComponent implements AfterViewInit {
   Pretraga() {
     this.rezultatPretrage = true;
     if (this.pretraga == "") {
-      this.filterPodaci = Angazmani.filter(x => x.Prihvacen && !x.Obrisan);
+      this.filterPodaci = Angazmani.filter(x => x.Prihvacen && !x.Obrisan).reverse();
       this.UcitajAngazmane(this.filterPodaci);
       return;
     }
@@ -47,6 +48,11 @@ export class AngazmaniComponent implements AfterViewInit {
       || x.Adresa.includes(this.pretraga) || x.Opis.includes(this.pretraga)
       || x.Vrijeme.includes(this.pretraga) || x.Datum.includes(this.pretraga) || x.KontaktTelefon.includes(this.pretraga) || x.ImePotrazitelja.includes(this.pretraga)));
     this.UcitajAngazmane(niz);
+
+    if(niz.length==0)
+    this.toastr.error("Nije pronađen rezultat pretrage.", "Greška")
+
+
   }
   
   UcitajAngazmane(podaci: any = null) {

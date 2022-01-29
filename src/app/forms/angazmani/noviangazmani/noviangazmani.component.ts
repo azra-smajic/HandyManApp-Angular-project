@@ -16,7 +16,7 @@ import { OglasDetaljiComponent } from '../../oglas-detalji/oglas-detalji.compone
 })
 export class NoviangazmaniComponent implements AfterViewInit {
   displayedColumns: string[] = ['Naziv', 'Datum', 'Vrijeme', 'KratakOpis', 'Akcije'];
-  dsNoviAngazmani = new MatTableDataSource<any>(Angazmani.filter(x => !x.Prihvacen && !x.Obrisan));
+  dsNoviAngazmani = new MatTableDataSource<any>(Angazmani.filter(x => !x.Prihvacen && !x.Obrisan).reverse());
 
   pretraga: string = "";
   rezultatPretrage: boolean = false;
@@ -49,7 +49,10 @@ export class NoviangazmaniComponent implements AfterViewInit {
     var niz = Angazmani.filter((x: any) => !x.Prihvacen && !x.Obrisan && (x.Naziv.includes(this.pretraga)
       || x.Adresa.includes(this.pretraga) || x.Opis.includes(this.pretraga)
       || x.Vrijeme.includes(this.pretraga) || x.Datum.includes(this.pretraga) || x.KontaktTelefon.includes(this.pretraga) || x.ImePotrazitelja.includes(this.pretraga)));
-    this.UcitajAngazmane(niz);
+    this.UcitajAngazmane(niz.reverse());
+    if(niz.length==0)
+    this.toastr.error("Nije pronađen rezultat pretrage.", "Greška")
+
   }
   
   keyDownFunction(event: any) {

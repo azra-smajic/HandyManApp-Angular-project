@@ -168,6 +168,8 @@ GetUser(){
       BrojTelefona:this.telefon,
       Opis:this.opis,
       Ocjena:0})
+    this.router.navigateByUrl('/mojiOglasi');
+
   }
 
   Poruka2(){

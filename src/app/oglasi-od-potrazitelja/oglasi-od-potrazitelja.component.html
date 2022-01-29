@@ -1,7 +1,7 @@
 <div class="sve">
 <div class="navHome">
   <div class="pretraga" style="position: relative; top:20%; display: flex; align-items: center;">
-    <p style="display: inline-block;position: relative; left: 5%; width: 20%; color: #1f1fb9;font-weight: bold;font-size: x-large;font-style: italic">Oglasi iz Vaše oblasti</p>
+    <p style="display: inline-block;position: relative; left: 5%; width: 20%; color: #1f1fb9;font-weight: bold;font-size: x-large;font-style: italic">Nađi posao</p>
     <div style="position: relative; left: 25%; display: flex; max-height: 40px; width: 30%; align-items: center;">
       <mat-icon style="color: #1f1fb9; margin-right: 2%;">search</mat-icon>
       <input class="form-control" type="search" placeholder="Unesite pojam za pretragu" [(ngModel)]="pretraga" aria-label="Search" #elementRef (keydown)="keyDownFunction($event)">
@@ -17,12 +17,12 @@
   </nav>
   <div class="justify">
   <div class="oblasti">
-    <button (click)="ClickSve()" #dugme1 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 7%;left: 10%;text-align: left;height: 10%;background-color:rgba(21,57,194,0.85)">Sve kategorije</button><br>
-    <button (click)="ClickElektrika()" #dugme2 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 14%;left: 10%;text-align: left;height: 10%;background-color:rgba(21,57,194,0.85)">Elektrika <mat-icon style="color: black;position: relative;left: 50%">flash_on</mat-icon></button><br>
+    <button (click)="ClickSve()" #dugme1 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 7%;left: 10%;text-align: left;height: 10%;background-color: deepskyblue">Sve kategorije</button><br>
+    <button (click)="ClickElektrika()" #dugme2 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 14%;left: 10%;text-align: left;height: 10%;background-color:deepskyblue">Elektrika <mat-icon style="color: black;position: relative;left: 50%">flash_on</mat-icon></button><br>
 
-    <button (click)="ClickKeramika()" #dugme3 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 21%;left: 10%;text-align: left;height: 10%;background-color:rgba(21,57,194,0.85)">Keramika<div id="icon1"></div></button><br>
-    <button (click)="ClickCiscenje()" #dugme4 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 28%;left: 10%;text-align: left;height: 10%;background-color:rgba(21,57,194,0.85)">Čišćenje<div id="icon2"></div></button><br>
-    <button (click)="ClickCijevi()" #dugme5 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 35%;left: 10%;text-align: left;height: 10%;background-color:rgba(21,57,194,0.85)">Cijevne instalacije<div id="icon3"></div></button><br>
+    <button (click)="ClickKeramika()" #dugme3 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 21%;left: 10%;text-align: left;height: 10%;background-color:deepskyblue">Keramika<div id="icon1"></div></button><br>
+    <button (click)="ClickCiscenje()" #dugme4 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 28%;left: 10%;text-align: left;height: 10%;background-color:deepskyblue">Čišćenje<div id="icon2"></div></button><br>
+    <button (click)="ClickCijevi()" #dugme5 type="button" class="btn btn-primary btn-lg" style="width: 80%;position: relative;top: 35%;left: 10%;text-align: left;height: 10%;background-color:deepskyblue">Cijevne instalacije<div id="icon3"></div></button><br>
   </div>
 
 
