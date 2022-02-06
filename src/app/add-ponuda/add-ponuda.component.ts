@@ -105,20 +105,26 @@ export class AddPonudaComponent implements OnInit {
       grad?.enable();
   }
   Update(){
-    this.toastr.success("Uspješno ste dodali sačuvali promjene","Čestitamo");
+    this.toastr.success("Uspješno ste sačuvali promjene","Čestitamo");
 
-    Ponude.splice(this.oglas.indeks,1);
-    PotraziteljOglasi.splice(this.oglas.indeks,1);
-    Ponude.push({Naziv:this.ime,
-      Grad:this.grad,
-      Podrucje:this.regija,
-      Slika:this.uploadedFiles,
-      Oblast:this.oblast,
-      BrojTelefona:this.telefon,
-      Opis:this.opis,
-      Ocjena:0})
+    // Ponude.splice(this.oglas.indeks,1);
+    // PotraziteljOglasi.splice(this.oglas.indeks,1);
+    // Ponude.push({Naziv:this.ime,
+    //   Grad:this.grad,
+    //   Podrucje:this.regija,
+    //   Slika:this.uploadedFiles,
+    //   Oblast:this.oblast,
+    //   BrojTelefona:this.telefon,
+    //   Opis:this.opis,
+    //   Ocjena:0})
 
-      PotraziteljOglasi.push({
+    
+    this.router.navigateByUrl('/moji-kvarovi');
+
+    var obj=PotraziteljOglasi.find(x=>x.ID==this.oglas.oglas.ID)
+    PotraziteljOglasi.pop();
+
+    PotraziteljOglasi.push({
         ID:PotraziteljOglasi.length+1,
         Naziv:this.naziv,
         Notification:false,
@@ -132,7 +138,9 @@ export class AddPonudaComponent implements OnInit {
         BrojTelefona:this.telefon,
         Opis:this.opis,
       })
-    this.router.navigateByUrl('/mojePonude');
+
+      
+
   }
 
   GetUser(){

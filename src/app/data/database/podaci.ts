@@ -288,6 +288,20 @@ Pomoc.push({
       PotraziteljID:2,
       Potrazitelj:"Azra Smajić",
       Notification:false
+    },
+    {
+      ID:8,
+      Naziv:"Popravka veš mašine",
+      Grad:"Konjic",
+      Adresa:"Kolonija 26",
+      Podrucje:"Hercegovačko-neretvanski kanton",
+      Slika:"http://localhost:4200/assets/MasinaZaVes.jpg",
+      Oblast:"Elektrika",
+      BrojTelefona:"061/147-852",
+      Opis:"Veš mašina mi ne radi već 5 dana",
+      PotraziteljID:2,
+      Potrazitelj:"Azra Smajić",
+      Notification:false
     }
 ];
 
@@ -295,11 +309,11 @@ Pomoc.push({
 MojiOglasi.push({Naziv:"Tajib Vikalo ",
   Grad:"Srebrenik",
   Podrucje:"Tuzlanski kanton",
-  Slika:"http://localhost:4200/assets/logo.jpg",
+  Slika:"http://localhost:4200/assets/1.jfif",
   Oblast:"Elektrika",
   BrojTelefona:"061/000-00",
   Opis:"Vršim popravku svih električnih uređaja po veoma jeftinoj cijeni. Dolazim na teren i rješavam stvar na licu mjesta.",
-  Ocjena:4.5})
+  Ocjena:0.0})
 
 
 MojePonude.push({Naziv:"Popravka mašine za veš",
@@ -532,6 +546,8 @@ Oglasi.push({Naziv:"Tarik Bojkić",
   BrojTelefona:"061/000-00",
   Opis:"Nudim usluge vakumskog čišćenja svih vrsta namještaja ili automobila po najnižim cijenama",
   Ocjena:4.9})
+
+  Oglasi.push(MojiOglasi[0])
 
 
 

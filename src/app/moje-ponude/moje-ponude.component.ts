@@ -30,7 +30,9 @@ export class MojePonudeComponent implements OnInit {
   async   Obrisi(indeks:any) {
 
     if (await this.openDialog('Upozorenje','Jeste li sigurni da želite obrisati svoj kvar?')) {
-      PotraziteljOglasi.splice(indeks,1);
+      PotraziteljOglasi.pop();
+      console.log(indeks)
+      this.toastr.success("Uspješno ste obrisali svoj kvar.","Čestitamo")
     }
   }
   
